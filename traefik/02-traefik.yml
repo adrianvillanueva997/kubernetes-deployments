@@ -35,7 +35,7 @@ spec:
             - --entrypoints.http.address=:80
             - --entrypoints.https.address=:443
             - --entrypoints.metrics.address=:8082
-            - --entrypoints.dashboard.address=:8080
+            # - --entrypoints.dashboard.address=:8080
           ports:
             - name: http
               containerPort: 80
