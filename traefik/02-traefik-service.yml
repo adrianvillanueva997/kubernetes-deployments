@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: traefik-dashboard-service
   namespace: traefik
-
 spec:
   type: LoadBalancer
   ports:
@@ -17,7 +16,6 @@ kind: Service
 metadata:
   name: traefik-web-service
   namespace: traefik
-
 spec:
   type: LoadBalancer
   ports:
