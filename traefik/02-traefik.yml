@@ -21,17 +21,23 @@ spec:
         - name: traefik
           image: traefik:v2.10.7
           args:
+            - --api.insecure=true
+            - --api.dashboard=true
+
             - --log.level=INFO
             - --log.format=json
+
             - --metrics.prometheus
             - --metrics.prometheus.addentrypointslabels=true
             - --metrics.prometheus.addrouterslabels=true
             - --metrics.prometheus.addserviceslabels=true
             - --metrics.prometheus.entrypoint=metrics
+
             - --tracing.servicename=traefik
-            - --api.insecure=true
+
             - --providers.kubernetesingress
             - --providers.kubernetescrd
+
             - --entrypoints.http.address=:80
             - --entrypoints.https.address=:443
             - --entrypoints.metrics.address=:8082
