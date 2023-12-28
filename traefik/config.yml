@@ -10,6 +10,11 @@ data:
     metrics:
       prometheus:
         addEntryPointsLabels: true
+        addRoutersLabels: true
+        addServicesLabels: true
+        entryPoint: metrics
+    tracing:
+      serviceName: traefik
     api:
       insecure: true
     providers:
@@ -20,3 +25,5 @@ data:
         address: :80
       https:
         address: :443
+      metrics:
+        address: :8082
