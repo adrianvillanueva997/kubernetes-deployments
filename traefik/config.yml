@@ -7,6 +7,9 @@ data:
   traefik.yaml: |
     log:
       level: INFO
+    metrics:
+      prometheus:
+        addEntryPointsLabels: true
     api:
       insecure: true
     providers:
