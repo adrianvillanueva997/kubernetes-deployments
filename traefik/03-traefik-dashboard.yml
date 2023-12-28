@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-dashboard-ingress
+  namespace: traefik
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: http
+    traefik.ingress.kubernetes.io/router.tls: "false"
+    # traefik.ingress.kubernetes.io/router.middlewares: ingress-traefik-traefikbasicauth@kubernetescrd
+    # cert-manager.io/cluster-issuer: letsencrypt-prod
+
+spec:
+  tls:
+    - secretName: cert-stage-wildcard
+
+  rules:
+    - host: test.thexiao77.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: traefik
+              servicePort: 8080
