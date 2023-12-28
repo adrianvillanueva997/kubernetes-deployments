@@ -45,6 +45,8 @@ spec:
           ports:
             - name: http
               containerPort: 80
+            - name: https
+              containerPort: 443
             - name: dashboard
               containerPort: 8080
           # resources:
