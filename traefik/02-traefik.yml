@@ -21,7 +21,8 @@ spec:
         - name: traefik
           image: traefik:v2.10.7
           args:
-            - --traefik --log.level=INFO
+            - --log.level=INFO
+            - --log.format=json
             - --metrics.prometheus
             - --metrics.prometheus.addentrypointslabels=true
             - --metrics.prometheus.addrouterslabels=true
