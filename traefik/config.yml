@@ -28,4 +28,4 @@ data:
       metrics:
         address: :8082
       dashboard:
-        traefik-ui: :8080
+        address: :8080
