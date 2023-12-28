@@ -35,8 +35,7 @@ spec:
             - --providers.kubernetescrd
             - --entrypoints.http.address=:80
             - --entrypoints.https.address=:443
-            - --entrypoints.metrics.address=:8082
-            - --entrypoints.dashboard.address=:8080
+            - --entrypoints.metrics.address=:8081
 
           ports:
             - name: http
