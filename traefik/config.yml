@@ -27,3 +27,5 @@ data:
         address: :443
       metrics:
         address: :8082
+      dashboard:
+        traefik-ui: :8080
