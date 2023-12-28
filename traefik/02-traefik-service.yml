@@ -7,9 +7,10 @@ spec:
   type: ClusterIP
   ports:
     - port: 8080
-      targetPort: dashboard
+      targetPort: 8080
   selector:
     app: traefik
+    dashboard: "true"
 ---
 apiVersion: v1
 kind: Service
