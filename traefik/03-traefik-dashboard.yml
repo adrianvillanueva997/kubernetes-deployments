@@ -11,8 +11,8 @@ metadata:
     # cert-manager.io/cluster-issuer: letsencrypt-prod
 
 spec:
-  tls:
-    - secretName: cert-stage-wildcard
+  # tls:
+  #   - secretName: cert-stage-wildcard
 
   rules:
     - host: test.thexiao77.com
