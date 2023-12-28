@@ -21,13 +21,15 @@ spec:
         - name: traefik
           image: traefik:v2.10.7
           args:
-            - --api.insecure
-            - --providers.kubernetesingress
+            - --configFile=config.yml
+            # - --api.insecure
+            # - --providers.kubernetesingress
+            # - --metrics.prometheus
           ports:
-            - name: web
+            - name: http
               containerPort: 80
-            - name: dashboard
-              containerPort: 8080
+            - name: https
+              containerPort: 443
           # resources:
           #   limits:
           #     memory: "128Mi"
