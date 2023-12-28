@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://helm.traefik.io/traefik
     targetRevision: v2.10.7 # Specify the version you want to deploy
-    path: traefik
+    path: .
     helm:
       valueFiles:
         - values.yaml # Customize Traefik configuration here if needed
