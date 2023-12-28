@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://helm.traefik.io/traefik
+    targetRevision: v26.0.0 # Specify the version you want to deploy
+    path: traefik
+    helm:
+      valueFiles:
+        - values.yaml # Customize Traefik configuration here if needed
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: traefik # Specify the namespace where you want to deploy Traefik
