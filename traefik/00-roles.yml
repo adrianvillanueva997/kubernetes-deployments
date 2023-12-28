@@ -2,7 +2,7 @@ kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: traefik-role
-  namespace: traefik
+  namespcace: traefik
 rules:
   - apiGroups:
       - ""
@@ -34,7 +34,7 @@ rules:
   - apiGroups:
       - traefik.io
     resources:
-      - traefikservices
+      - "*"
     verbs:
       - get
       - list
