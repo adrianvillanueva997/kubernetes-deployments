@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
-    path: appofapps/
+    path: meta-application/
     targetRevision: main
   syncPolicy:
     automated:
