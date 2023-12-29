@@ -1,19 +1,19 @@
-# metallb-daemonset.yaml
-apiVersion: apps/v1
-kind: DaemonSet
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  namespace: metallb-system
-  name: speaker
+  name: metallb
+  namespace: argocd
 spec:
-  selector:
-    matchLabels:
-      name: speaker
-  template:
-    metadata:
-      labels:
-        name: speaker
-    spec:
-      hostNetwork: true
-      containers:
-        - name: speaker
-          image: bitnami/metallb-speaker:0.13.12
+  destination:
+    namespace: metallb-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      valueFiles:
+        - values.yaml
+    path: helm/metallb
+    repoURL: https://metallb.github.io/metallb
+    targetRevision: 0.13.12
+  syncPolicy:
+    automated: {}
