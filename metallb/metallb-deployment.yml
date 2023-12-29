@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: speaker
-          image: metallb/speaker:v0.9.6
+          image: bitnami/metallb-speaker:0.13.12
           ports:
             - name: speaker
               containerPort: 7472
         - name: controller
-          image: metallb/controller:v0.9.6
+          image: bitnami/metallb-controller:0.13.12
           ports:
             - name: controller
               containerPort: 7472
