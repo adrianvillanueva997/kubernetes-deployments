@@ -16,6 +16,8 @@ spec:
       containers:
         - name: traefik
           image: traefik:v2.10.7
+          args:
+            - --configFile=/etc/traefik/traefik-config.yaml
           ports:
             - name: web
               containerPort: 80
