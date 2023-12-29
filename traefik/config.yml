@@ -1,0 +1,7 @@
+# config.yaml
+apiVersion: v2
+name: traefik
+configurations:
+  commonLabels:
+    app: traefik
+  ingressClass: traefik

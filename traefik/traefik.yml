@@ -11,8 +11,11 @@ spec:
     targetRevision: 2.10.7
     helm:
       releaseName: traefik
-      valueFiles:
-        - values.yaml
+      values: |
+        configurations:
+          - file: config.yaml
+            name: config.yaml
+
   destination:
     server: "https://kubernetes.default.svc"
     namespace: traefik
