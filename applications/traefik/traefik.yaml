@@ -9,7 +9,7 @@ spec:
     namespace: traefik
     server: https://kubernetes.default.svc
   source:
-    chart: traefik/traefik
+    chart: traefik
     repoURL: https://traefik.github.io/charts
     targetRevision: 26.0.0
     helm:
