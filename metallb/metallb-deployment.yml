@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metallb
+  namespace: metallb-system
+spec:
+  selector:
+    matchLabels:
+      app: metallb
+  template:
+    metadata:
+      labels:
+        app: metallb
+    spec:
+      containers:
+        - name: speaker
+          image: metallb/speaker:v0.9.6
+          ports:
+            - name: speaker
+              containerPort: 7472
+        - name: controller
+          image: metallb/controller:v0.9.6
+          ports:
+            - name: controller
+              containerPort: 7472
+      serviceAccountName: controller
