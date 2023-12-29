@@ -15,6 +15,9 @@ spec:
       containers:
         - name: speaker
           image: bitnami/metallb-speaker:0.13.12
+          args:
+            - --enable-pprof
+            - --log-level=debug
           ports:
             - name: speaker
               containerPort: 7472
