@@ -16,4 +16,4 @@ spec:
       hostNetwork: true
       containers:
         - name: speaker
-          image: metallb/speaker:v0.11.0
+          image: bitnami/metallb-speaker:v0.11.0
