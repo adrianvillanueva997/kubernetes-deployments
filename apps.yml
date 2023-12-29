@@ -1,15 +1,61 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps
+  name: meta-application
   namespace: argocd
 spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
   project: default
   source:
     repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
-    targetRevision: main
     path: .
-    kustomize: {}
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences:
+    - group: "argoproj.io"
+      kind: "Application"
+      jsonPointers:
+        - /spec/source/targetRevision
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+  namespace: argocd
+spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: traefik
+  project: default
+  source:
+    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
+    path: traefik
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: guestbook
+  project: default
+  source:
+    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
+    path: guestbook
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
