@@ -1,29 +1,19 @@
+# metallb-daemonset.yaml
 apiVersion: apps/v1
-kind: Deployment
+kind: DaemonSet
 metadata:
-  name: metallb
   namespace: metallb-system
+  name: speaker
 spec:
   selector:
     matchLabels:
-      app: metallb
+      name: speaker
   template:
     metadata:
       labels:
-        app: metallb
+        name: speaker
     spec:
+      hostNetwork: true
       containers:
         - name: speaker
-          image: bitnami/metallb-speaker:0.13.12
-          args:
-            - --enable-pprof
-            - --log-level=debug
-          ports:
-            - name: speaker
-              containerPort: 7472
-        - name: controller
-          image: bitnami/metallb-controller:0.13.12
-          ports:
-            - name: controller
-              containerPort: 7472
-      serviceAccountName: controller
+          image: metallb/speaker:v0.11.0
