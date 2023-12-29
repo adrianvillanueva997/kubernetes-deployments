@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
-    path: .
+    path: apps/
     targetRevision: main
   syncPolicy:
     automated:
@@ -21,40 +21,3 @@ spec:
       kind: "Application"
       jsonPointers:
         - /spec/source/targetRevision
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: traefik
-  namespace: argocd
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: traefik
-  project: default
-  source:
-    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
-    path: traefik
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: metallb
-spec:
-  project: default
-  source:
-    repoURL: https://metallb.github.io/metallb
-    targetRevision: v0.13.2
-    chart: metallb
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: metallb # Specify the namespace where you want to install MetalLB
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
