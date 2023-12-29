@@ -1,5 +1,11 @@
-entryPoints:
-  http:
-    address: ":80"
-  https:
-    address: ":443"
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik-config
+data:
+  traefik-config.yaml: |
+    entryPoints:
+      http:
+        address: ":80"
+      https:
+        address: ":443"

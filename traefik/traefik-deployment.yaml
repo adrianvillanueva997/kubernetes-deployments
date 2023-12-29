@@ -23,8 +23,7 @@ spec:
               containerPort: 8080
           volumeMounts:
             - name: traefik-config
-              mountPath: /etc/traefik/traefik-config.yaml
-              subPath: traefik-config.yaml
+              mountPath: /etc/traefik
           volumes:
             - name: traefik-config
               configMap:
