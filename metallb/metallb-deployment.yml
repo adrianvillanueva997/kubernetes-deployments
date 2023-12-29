@@ -13,7 +13,7 @@ spec:
       valueFiles:
         - values.yaml
     path: helm/metallb
-    repoURL: hgithub.com/metallb/metallb/config/native?ref=v0.13.12
+    repoURL: github.com/metallb/metallb/config/native?ref=v0.13.12
     targetRevision: 0.13.12
   syncPolicy:
     automated: {}
