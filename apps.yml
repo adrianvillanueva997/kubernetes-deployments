@@ -50,7 +50,7 @@ spec:
   source:
     repoURL: https://metallb.github.io/metallb
     targetRevision: v0.13.2
-    path: charts/metallb
+    chart: metallb
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb # Specify the namespace where you want to install MetalLB
