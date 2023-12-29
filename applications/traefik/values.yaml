@@ -1,0 +1,10 @@
+dashboard:
+  enabled: true
+  ingressRoute:
+    enabled: true
+
+entryPoints:
+  http:
+    address: ":80"
+  https:
+    address: ":443"
