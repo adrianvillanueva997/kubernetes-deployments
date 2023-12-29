@@ -40,22 +40,22 @@ spec:
     automated:
       prune: true
       selfHeal: true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: guestbook
-  namespace: argocd
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: guestbook
-  project: default
-  source:
-    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
-    path: guestbook
-    targetRevision: main
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: guestbook
+#   namespace: argocd
+# spec:
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: guestbook
+#   project: default
+#   source:
+#     repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
+#     path: guestbook
+#     targetRevision: main
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
