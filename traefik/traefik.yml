@@ -8,7 +8,7 @@ spec:
   source:
     chart: traefik
     repoURL: https://helm.traefik.io/traefik
-    targetRevision: 2.5.3
+    targetRevision: 2.10.7
     helm:
       releaseName: traefik
   destination:
