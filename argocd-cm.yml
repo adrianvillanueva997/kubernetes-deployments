@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: argoapps
+  name: argocd-cm
   namespace: argocdapps
 data:
   repositories: |
