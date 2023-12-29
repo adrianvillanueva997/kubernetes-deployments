@@ -24,7 +24,7 @@ spec:
           volumeMounts:
             - name: traefik-config
               mountPath: /etc/traefik
-      volumes: # Corrected indentation
+      volumes:
         - name: traefik-config
           configMap:
             name: traefik-config

@@ -4,6 +4,9 @@ metadata:
   name: traefik-config
 data:
   traefik-config.yaml: |
+    api:
+      dashboard: true
+      insecure: true
     entryPoints:
       http:
         address: ":80"
