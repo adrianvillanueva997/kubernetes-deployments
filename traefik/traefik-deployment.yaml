@@ -20,7 +20,7 @@ spec:
           args:
             - --configFile=/etc/traefik/traefik-config.yaml
           ports:
-            - name: web
+            - name: http
               containerPort: 80
             - name: admin
               containerPort: 8080
