@@ -15,3 +15,7 @@ data:
     providers:
       kubernetesCRD: {}
       kubernetesIngress: {}
+    log:
+      level: info
+    metrics:
+      prometheus: {}  # Enable Prometheus metrics
