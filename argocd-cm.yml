@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-cm
-  namespace: argocdapps
+  namespace: argocd
 data:
   repositories: |
     - url: https://github.com/adrianvillanueva997/kubernetes-deployments
