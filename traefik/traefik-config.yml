@@ -12,3 +12,6 @@ data:
         address: ":80"
       https:
         address: ":443"
+    providers:
+      kubernetesCRD: {}
+      kubernetesIngress: {}
