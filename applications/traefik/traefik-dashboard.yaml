@@ -30,11 +30,9 @@ spec:
       middlewares:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
-tls:
-  secretName: traefik-dashboard-tls
-  options:
-    name: traefik-tls-traefik-dashboard
-    namespace: traefik
+  tls:
+    options:
+      name: traefik-tls-traefik-dashboard@traefik
 
 ---
 apiVersion: cert-manager.io/v1
