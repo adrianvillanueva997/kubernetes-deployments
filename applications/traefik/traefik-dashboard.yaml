@@ -27,51 +27,51 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-      middlewares:
-        - name: https-redirect-middleware-traefik-dashboard
-          namespace: traefik
-  tls:
-    secretName: traefik-dashboard-tls
-    options: {}
----
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-traefik-dashboard
-  namespace: traefik
-spec:
-  acme:
-    email: adrianvillanueva997@gmail.com
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: letsencrypt-issuer-account-key
-    solvers:
-      - http01:
-          ingress:
-            serviceType: ClusterIP
-            ingressClassName: traefik
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: traefik-dashboard-certificate
-  namespace: traefik
-spec:
-  secretName: traefik-dashboard-tls
-  issuerRef:
-    name: letsencrypt-traefik-dashboard
-    kind: ClusterIssuer
-  commonName: test.thexiao77.com
-  dnsNames:
-    - test.thexiao77.com
+      # middlewares:
+      #   - name: https-redirect-middleware-traefik-dashboard
+      #     namespace: traefik
+  # tls:
+  #   secretName: traefik-dashboard-tls
+  #   options: {}
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: ClusterIssuer
+# metadata:
+#   name: letsencrypt-traefik-dashboard
+#   namespace: traefik
+# spec:
+#   acme:
+#     email: adrianvillanueva997@gmail.com
+#     server: https://acme-staging-v02.api.letsencrypt.org/directory
+#     privateKeySecretRef:
+#       name: letsencrypt-issuer-account-key
+#     solvers:
+#       - http01:
+#           ingress:
+#             serviceType: ClusterIP
+#             ingressClassName: traefik
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: traefik-dashboard-certificate
+#   namespace: traefik
+# spec:
+#   secretName: traefik-dashboard-tls
+#   issuerRef:
+#     name: letsencrypt-traefik-dashboard
+#     kind: ClusterIssuer
+#   commonName: test.thexiao77.com
+#   dnsNames:
+#     - test.thexiao77.com
 
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: https-redirect-middleware-traefik-dashboard
-  namespace: traefik
-spec:
-  redirectScheme:
-    scheme: https
-    permanent: true
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: https-redirect-middleware-traefik-dashboard
+#   namespace: traefik
+# spec:
+#   redirectScheme:
+#     scheme: https
+#     permanent: true
