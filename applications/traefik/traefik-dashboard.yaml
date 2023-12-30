@@ -84,7 +84,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: TLSOption
 metadata:
-  name: tls-traefik-dashboard
+  name: traefik-tls-traefik-dashboard
   namespace: traefik
 spec:
   minVersion: VersionTLS12
