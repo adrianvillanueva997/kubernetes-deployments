@@ -14,12 +14,12 @@ spec:
     targetRevision: 26.0.0
     helm:
       releaseName: traefik
-    valuesFiles:
-      - ./values.yaml
+      valueFiles:
+        - ./values.yaml # Specify the path to the values file within the traefik chart directory
   syncPolicy:
     automated:
-      prune: false # Specifies if resources should be pruned during auto-syncing ( false by default ).
-      selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
-      allowEmpty: false # Allows deleting all application resources during automatic syncing ( false by default ).
+      prune: false
+      selfHeal: true
+      allowEmpty: false
     syncOptions:
       - CreateNamespace=true
