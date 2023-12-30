@@ -30,6 +30,9 @@ spec:
       middlewares:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
+        - name: traefik-dashboard-auth
+          namespace: traefik
+
   tls:
     certResolver: letsencrypt
 
@@ -43,3 +46,12 @@ spec:
   redirectScheme:
     scheme: https
     permanent: true
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: traefik-dashboard-auth
+  namespace: traefik
+spec:
+  basicAuth:
+    secret: secret-traefik-dashboard-auth
