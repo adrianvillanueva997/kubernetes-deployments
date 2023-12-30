@@ -1,36 +1,36 @@
-dashboard:
-  enabled: true
-  domain: dashboard.mydomain.com
-  ingressRoute: false
+# dashboard:
+#   enabled: true
+#   domain: dashboard.mydomain.com
+#   ingressRoute: false
 
-entryPoints:
-  streaming:
-    address: ":1704/udp"
+# entryPoints:
+#   streaming:
+#     address: ":1704/udp"
 
-additionalArguments:
-  - "--api.insecure=true"
-  - "--api.dashboard=true"
+# additionalArguments:
+#   - "--api.insecure=true"
+#   - "--api.dashboard=true"
 
-ports:
-  minecraft:
-    port: 25565
-    # -- Use hostPort if set.
-    # hostPort: 9000
-    #
-    # -- Use hostIP if set. If not set, Kubernetes will default to 0.0.0.0, which
-    # means it's listening on all your interfaces and all your IPs. You may want
-    # to set this value if you need traefik to listen on specific interface
-    # only.
-    # hostIP: 192.168.100.10
+# ports:
+#   minecraft:
+#     port: 25565
+#     # -- Use hostPort if set.
+#     # hostPort: 9000
+#     #
+#     # -- Use hostIP if set. If not set, Kubernetes will default to 0.0.0.0, which
+#     # means it's listening on all your interfaces and all your IPs. You may want
+#     # to set this value if you need traefik to listen on specific interface
+#     # only.
+#     # hostIP: 192.168.100.10
 
-    # Defines whether the port is exposed if service.type is LoadBalancer or
-    # NodePort.
-    #
-    # -- You SHOULD NOT expose the traefik port on production deployments.
-    # If you want to access it from outside your cluster,
-    # use `kubectl port-forward` or create a secure ingress
-    expose: true
-    # -- The exposed port for this service
-    exposedPort: 25565
-    # -- The port protocol (TCP/UDP)
-    protocol: TCP
+#     # Defines whether the port is exposed if service.type is LoadBalancer or
+#     # NodePort.
+#     #
+#     # -- You SHOULD NOT expose the traefik port on production deployments.
+#     # If you want to access it from outside your cluster,
+#     # use `kubectl port-forward` or create a secure ingress
+#     expose: true
+#     # -- The exposed port for this service
+#     exposedPort: 25565
+#     # -- The port protocol (TCP/UDP)
+#     protocol: TCP
