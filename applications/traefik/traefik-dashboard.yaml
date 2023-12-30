@@ -27,8 +27,17 @@ spec:
         - name: api@internal
           kind: TraefikService
 # ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: letsencrypt-issuer-account-key
+#   namespace: cert-manager
+# type: Opaque
+# data:
+#   privateKey: <your-base64-encoded-private-key>
+# ---
 # apiVersion: cert-manager.io/v1
-# kind: Issuer
+# kind: ClusterIssuer
 # metadata:
 #   name: letsencrypt-staging
 #   namespace: traefik
