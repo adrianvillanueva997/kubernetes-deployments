@@ -14,9 +14,32 @@ spec:
     targetRevision: v1.13
     helm:
       releaseName: cert-manager
+      values: |
+        installCRDs: true
+        prometheus:
+          enabled: true
+        webhook:
+          enabled: true
+        cainjector:
+          enabled: true
+        nodeSelector:
+          kubernetes.io/os: linux
+        tolerations:
+          - key: node-role.kubernetes.io/master
+            effect: NoSchedule
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - cert-manager
+                topologyKey: kubernetes.io/hostname
   syncPolicy:
     automated:
-      prune: false
+      prune: true
       selfHeal: true
       allowEmpty: false
     syncOptions:
