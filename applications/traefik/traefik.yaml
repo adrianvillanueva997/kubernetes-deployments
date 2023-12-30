@@ -28,16 +28,15 @@ spec:
           - "--providers.kubernetescrd.namespaces=traefik"
         certResolvers:
           letsencrypt:
-            acme:
-              email: adrianvillanueva997@gmail.com
-              provider: letsencrypt
-              # storage: /data/acme.json
-              httpChallenge:
-                entryPoint: web
-              resolvers:
-                - 1.1.1.1
-                - 8.8.8.8
-              tlsChallenge: true
+            email: adrianvillanueva997@gmail.com
+            provider: letsencrypt
+            # storage: /data/acme.json
+            httpChallenge:
+              entryPoint: web
+            resolvers:
+              - 1.1.1.1
+              - 8.8.8.8
+            tlsChallenge: true
 
   syncPolicy:
     automated:
