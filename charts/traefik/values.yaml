@@ -344,7 +344,7 @@ metrics:
   ## -- It can be disabled by setting "prometheus: null"
   prometheus:
     # -- Entry point used to expose metrics.
-    entryPoint: metrics
+    entryPoint: prometheus
     ## Enable metrics on entry points. Default=true
     # addEntryPointsLabels: false
     ## Enable metrics on routers. Default=false
