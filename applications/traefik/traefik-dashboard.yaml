@@ -19,7 +19,7 @@ metadata:
   namespace: traefik
 spec:
   entryPoints:
-    - web
+    - http
   routes:
     - match: Host(`test.thexiao77.com`)
       kind: Rule
