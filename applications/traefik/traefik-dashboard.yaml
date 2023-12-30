@@ -30,23 +30,27 @@ spec:
       middlewares:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
-        # - name: traefik-dashboard-auth
-        # namespace: traefik
+        - name: traefik-dashboard-auth
+          namespace: traefik
 
   tls:
     certResolver: letsencrypt
 
 ---
+
+---
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
+  creationTimestamp: null
   name: secret-traefik-dashboard-auth
   namespace: traefik
 spec:
   encryptedData:
-    password: AgDDFWjqAGVLVFNM/pyPMfpx5teR5bR/e7ivhkl39npOKzjYxWJ28L42Z0Lp/zXh3YZ3pl/6NSGN/6m62TecCfBNlhu7fUhiOvZTV9NYTpkYl6wDP/TJc4gAwJkQgt2IRUwKhc8yE1k/X6C9KUjSqGICGEhKXw0kbE027Y0En1p10kiO+eL4NQXZNr+nsha1WAk4OkRs0jx+VoDDE6oWKvEt7YdAqmFvRPs61aoVnzD1dxAdocY3cHzTlzZwAqe5rEJY69HorMgZ7jm9nBx7bVNeeNFUp97gSPSmxlz81xXhsJ/uV10liZ/2xhI13kat1Zu1krHUT0VAO2cw9gfzVgmpHjlB8Dssp48dWo7PH5Oh3e+TIB5TB+eTqGs1D+a818O9GCrdAD0LbmUDK7tVxwsruPTdFehfTwWYgYjssp5/QM4lgZB9iPyCT3oed0C9+tIgxRCLLCB2l9BljevRjsHrOztAMRDmuVyb6A4iFJMdm2lD/ImNReS/FRuIK3l+rhX+YljUh5kR8Unqp2qtevPaTHAXJ3uTxq/KezRKIFHNEgAvRyfK4uqn/7vISYKGQHgjYGJgw4nXfJ9ivEXlK1N7Mug/U3RIQlC30zERTLqd5oh18eAuuP1j4TfuwdaMK5IOqx/nM8sdlwRANAayoGc46KuaUcqHNuyVieuwngyOXHzlCAD/vULIDIEOGTlaWyJNVEfcApxxS6nWAgywEhRiN1MSLQdnKc4pM1XPzrYwiimVa2vn0srEssS8zA==
+    password: AgBWxd565ekm4wiWlA+R1AxMgsYHzLHRpz/zsECSiZnQ0E3r+I+QARMzGozUAvl2qWZe6X0XtR04GPmWpU4wtSzOV0xZtlkMwO04TXo3HwsJfEezOy7wyFvzVewOcJcGUTy+X2ankJsgXBGcfgilNqvoHR7YXz6sbNZ3L7Yix0839kJY9TDDJNOaZEWz02f9Pq6qARMJwGPXxWpxulf0nc5gFjDpxMMUbBWXt0WlT66YKCFr2gEKRubLYgDpIQYzgpwMM7MvouYR5vTfH7kqhVQvEiSg1uR8oWWUW6mUeOZgeYxuCq9nxd/sZCTcb5o3L6qo/usLP+DoyhPc0zEpFI8j6y9QBa5BDpeVIoY2Sa8VHXoDWoUqreEt9pn99RZLxjRLXgzC6RYWQbk14pUEqEBBSRxFjlgRzykwGGY6jB32wAI9kNYq6+BkCeoKvLtkE+iPyNVagg+9oaS/3RUz+cD7gdA5KHEU6663tki6XzOap0x/xuq3yIhv4L/HxCG8h0c7ERi2ronRgbPXxkibqVX+njO/tAbrKnBMxfMaSNEJ3m9EilfOjGiai5/+SmL4rZAnDVm9YbLwDe+6Zu3WaF7rgC9jEU9aBwwPa0rEoMioiwuuPcaBcGZAPG88XaoQS1NCBB06HSsLDAXbVBr1KFm0PL1XWh9Bkw7LQDwaMElG+piwch6DGD6fK9fhusYmo9mAteag2jgbm/F1BPgjCObkn5fUJscj4kW6DY5aRZO5A+p0lcLTCMuG11+rfirBpX+QCA/gC1i8nvctCNtkh6FMTQ==
   template:
     metadata:
+      creationTimestamp: null
       name: secret-traefik-dashboard-auth
       namespace: traefik
     type: Opaque
