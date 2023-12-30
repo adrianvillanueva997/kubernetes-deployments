@@ -4,9 +4,10 @@ dashboard:
   ingressRoute: false
 
 entryPoints:
-  minecraft:
-    address: ":25565" # Listen on port 25565
+  streaming:
+    address: ":1704/udp"
 
 additionalArguments:
   - "--api.insecure=true"
   - "--api.dashboard=true"
+  - "--entryPoints.streaming.address=:1704/udp"
