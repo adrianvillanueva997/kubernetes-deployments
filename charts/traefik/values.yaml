@@ -344,7 +344,7 @@ metrics:
   ## -- It can be disabled by setting "prometheus: null"
   prometheus:
     # -- Entry point used to expose metrics.
-    entryPoint: prometheus
+    entryPoint: metrics
     ## Enable metrics on entry points. Default=true
     # addEntryPointsLabels: false
     ## Enable metrics on routers. Default=false
@@ -610,80 +610,24 @@ envFrom: []
 ports:
   traefik:
     port: 9000
-    # -- Use hostPort if set.
-    # hostPort: 9000
-    #
-    # -- Use hostIP if set. If not set, Kubernetes will default to 0.0.0.0, which
-    # means it's listening on all your interfaces and all your IPs. You may want
-    # to set this value if you need traefik to listen on specific interface
-    # only.
-    # hostIP: 192.168.100.10
-
-    # Defines whether the port is exposed if service.type is LoadBalancer or
-    # NodePort.
-    #
-    # -- You SHOULD NOT expose the traefik port on production deployments.
-    # If you want to access it from outside your cluster,
-    # use `kubectl port-forward` or create a secure ingress
     expose: false
-    # -- The exposed port for this service
     exposedPort: 9000
-    # -- The port protocol (TCP/UDP)
     protocol: TCP
   web:
-    ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
-    # asDefault: true
     port: 8000
-    # hostPort: 8000
-    # containerPort: 8000
     expose: true
     exposedPort: 80
-    ## -- Different target traefik port on the cluster, useful for IP type LB
-    # targetPort: 80
-    # The port protocol (TCP/UDP)
     protocol: TCP
-    # -- Use nodeport if set. This is useful if you have configured Traefik in a
-    # LoadBalancer.
-    # nodePort: 32080
-    # Port Redirections
-    # Added in 2.2, you can make permanent redirects via entrypoints.
-    # https://docs.traefik.io/routing/entrypoints/#redirection
-    # redirectTo:
-    #   port: websecure
-    #   (Optional)
-    #   priority: 10
-    #
-    # Trust forwarded  headers information (X-Forwarded-*).
-    # forwardedHeaders:
-    #   trustedIPs: []
-    #   insecure: false
-    #
-    # Enable the Proxy Protocol header parsing for the entry point
-    # proxyProtocol:
-    #   trustedIPs: []
-    #   insecure: false
   websecure:
-    ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
-    # asDefault: true
     port: 8443
-    # hostPort: 8443
-    # containerPort: 8443
     expose: true
     exposedPort: 443
-    ## -- Different target traefik port on the cluster, useful for IP type LB
-    # targetPort: 80
-    ## -- The port protocol (TCP/UDP)
     protocol: TCP
-    # nodePort: 32443
-    ## -- Specify an application protocol. This may be used as a hint for a Layer 7 load balancer.
-    # appProtocol: https
-    #
-    ## -- Enable HTTP/3 on the entrypoint
-    ## Enabling it will also enable http3 experimental feature
-    ## https://doc.traefik.io/traefik/routing/entrypoints/#http3
-    ## There are known limitations when trying to listen on same ports for
-    ## TCP & UDP (Http3). There is a workaround in this chart using dual Service.
-    ## https://github.com/kubernetes/kubernetes/issues/47249#issuecomment-587960741
+  minecraft:
+    port: 25565
+    expose: true
+    exposedPort: 25565
+    protocol: TCP
     http3:
       enabled: false
     # advertisedPort: 4443
