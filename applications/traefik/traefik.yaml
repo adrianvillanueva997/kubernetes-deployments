@@ -5,17 +5,13 @@ metadata:
   namespace: argocd
 spec:
   project: default
+  source:
+    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
+    path: charts/traefik
+    targetRevision: main
   destination:
     namespace: traefik
     server: https://kubernetes.default.svc
-  source:
-    chart: traefik
-    repoURL: https://traefik.github.io/charts
-    targetRevision: 26.0.0
-    helm:
-      releaseName: traefik
-      valueFiles:
-        - values.yaml # Specify the path to the values file within the traefik chart directory
   syncPolicy:
     automated:
       prune: false
