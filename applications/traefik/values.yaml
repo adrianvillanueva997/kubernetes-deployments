@@ -5,7 +5,7 @@ dashboard:
 
 entryPoints:
   minecraft:
-    address: ":25565"
+    address: ":25565" # Listen on port 25565
 
 additionalArguments:
   - "--api.insecure=true"
