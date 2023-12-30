@@ -38,7 +38,7 @@ spec:
             tlsChallenge: true
             httpChallenge:
               entryPoint: web
-            # storage: /data/acme.json
+            storage: /data/acme.json
 
   syncPolicy:
     automated:
