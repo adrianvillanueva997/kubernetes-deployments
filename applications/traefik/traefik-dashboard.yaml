@@ -40,7 +40,6 @@ spec:
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  creationTimestamp: null
   name: secret-traefik-dashboard-auth
   namespace: traefik
 spec:
