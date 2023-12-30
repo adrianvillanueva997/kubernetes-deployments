@@ -32,7 +32,9 @@ spec:
           namespace: traefik
   tls:
     secretName: traefik-dashboard-tls
-    options: {}
+    options:
+      name: default
+      namespace: default
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
