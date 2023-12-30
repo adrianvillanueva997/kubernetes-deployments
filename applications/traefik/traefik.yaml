@@ -24,6 +24,13 @@ spec:
             expose: true
             exposedPort: 25565
             protocol: TCP
+        certificatesResolvers:
+          letsencrypt:
+            acme:
+              email: adrianvillanueva997@gmail.com
+              storage: acme.json
+              httpChallenge:
+                entryPoint: web
   syncPolicy:
     automated:
       prune: false
