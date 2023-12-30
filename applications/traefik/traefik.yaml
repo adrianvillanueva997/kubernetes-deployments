@@ -30,7 +30,7 @@ spec:
           letsencrypt:
             email: adrianvillanueva997@gmail.com
             dnsChallenge:
-              provider: letsencrypt
+              provider: digitalocean
               delayBeforeCheck: 30
               resolvers:
                 - 1.1.1.1
