@@ -29,14 +29,16 @@ spec:
         certResolvers:
           letsencrypt:
             email: adrianvillanueva997@gmail.com
-            provider: letsencrypt
-            # storage: /data/acme.json
+            dnsChallenge:
+              provider: letsencrypt
+              delayBeforeCheck: 30
+              resolvers:
+                - 1.1.1.1
+                - 8.8.8.8
+            tlsChallenge: true
             httpChallenge:
               entryPoint: web
-            resolvers:
-              - 1.1.1.1
-              - 8.8.8.8
-            tlsChallenge: true
+            # storage: /data/acme.json
 
   syncPolicy:
     automated:
