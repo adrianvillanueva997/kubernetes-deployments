@@ -15,7 +15,7 @@ spec:
     helm:
       releaseName: traefik
       valueFiles:
-        - ./values.yaml # Specify the path to the values file within the traefik chart directory
+        - values.yaml # Specify the path to the values file within the traefik chart directory
   syncPolicy:
     automated:
       prune: false
