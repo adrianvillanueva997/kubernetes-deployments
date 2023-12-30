@@ -24,6 +24,8 @@ spec:
             expose: true
             exposedPort: 25565
             protocol: TCP
+        additionalArguments:
+          - "--providers.kubernetescrd.namespaces=traefik"
         certificatesResolvers:
           letsencrypt:
             acme:
