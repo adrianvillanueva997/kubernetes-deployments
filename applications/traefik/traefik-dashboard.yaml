@@ -33,8 +33,8 @@ spec:
   tls:
     secretName: traefik-dashboard-tls
     options:
-      name: default
-      namespace: default
+      name: tls-traefik-dashboard
+      namespace: traefik
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -76,3 +76,17 @@ spec:
   redirectScheme:
     scheme: https
     permanent: true
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: TLSOption
+metadata:
+  name: tls-traefik-dashboard
+  namespace: traefik
+spec:
+  minVersion: VersionTLS12
+  cipherSuites:
+    - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+    - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+    - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+  sniStrict: true
