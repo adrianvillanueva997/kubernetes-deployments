@@ -31,9 +31,7 @@ spec:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
   tls:
-    options:
-      namespace: traefik
-      name: traefik-tls-traefik-dashboard # Update the reference to TLSOption
+    certResolver: letsencrypt-traefik-dashboard
 
 ---
 apiVersion: cert-manager.io/v1
