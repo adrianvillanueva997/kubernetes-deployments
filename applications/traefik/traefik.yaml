@@ -26,13 +26,19 @@ spec:
             protocol: TCP
         additionalArguments:
           - "--providers.kubernetescrd.namespaces=traefik"
-        certificatesResolvers:
+        certResolvers:
           letsencrypt:
             acme:
               email: adrianvillanueva997@gmail.com
-              storage: acme.json
+              provider: letsencrypt
+              # storage: /data/acme.json
               httpChallenge:
                 entryPoint: web
+              resolvers:
+                - 1.1.1.1
+                - 8.8.8.8
+              tlsChallenge: true
+
   syncPolicy:
     automated:
       prune: false
