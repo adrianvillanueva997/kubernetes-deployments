@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
   - traefik.yaml
-  - dashboard-ingressroute.yaml
+  - traefik-dashboard.yaml

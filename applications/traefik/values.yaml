@@ -1,11 +1,8 @@
 dashboard:
   enabled: true
-  domain: test.thexiao77.com
-  ingressRoute:
-    enabled: true
+  domain: dashboard.mydomain.com
+  ingressRoute: false
 
-entryPoints:
-  http:
-    address: ":80"
-  https:
-    address: ":443"
+additionalArguments:
+  - "--api.insecure=true"
+  - "--api.dashboard=true"
