@@ -3,11 +3,11 @@ dashboard:
   domain: dashboard.mydomain.com
   ingressRoute: false
 
-entryPoints:
-  http:
-    address: ":80"
-  https:
-    address: ":443"
+# entryPoints:
+#   http:
+#     address: ":80"
+#   https:
+#     address: ":443"
 
 additionalArguments:
   - "--api.insecure=true"
