@@ -32,6 +32,7 @@ spec:
           namespace: traefik
   tls:
     options:
+      namespace: traefik
       name: traefik-tls-traefik-dashboard@traefik
 
 ---
