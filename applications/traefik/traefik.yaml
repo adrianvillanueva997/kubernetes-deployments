@@ -15,7 +15,7 @@ spec:
     helm:
       releaseName: traefik
     valuesFiles:
-      - values.yaml
+      - ./values.yaml
   syncPolicy:
     automated:
       prune: false # Specifies if resources should be pruned during auto-syncing ( false by default ).
