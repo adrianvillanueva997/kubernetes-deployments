@@ -33,7 +33,7 @@ spec:
   tls:
     options:
       namespace: traefik
-      name: traefik-tls-traefik-dashboard@traefik
+      name: traefik-tls-traefik-dashboard # Update the reference to TLSOption
 
 ---
 apiVersion: cert-manager.io/v1
