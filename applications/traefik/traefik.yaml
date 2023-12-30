@@ -38,7 +38,11 @@ spec:
             tlsChallenge: true
             httpChallenge:
               entryPoint: web
-            storage: /data/acme.json
+            storage: /data/traefik/acme.json
+            persistence:
+              enabled: true
+              accessMode: ReadWriteOnce
+              path: /data/traefik/acme.json
 
   syncPolicy:
     automated:

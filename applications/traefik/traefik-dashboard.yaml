@@ -37,8 +37,6 @@ spec:
     certResolver: letsencrypt
 
 ---
-
----
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
