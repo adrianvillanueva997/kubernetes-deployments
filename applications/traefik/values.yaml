@@ -3,11 +3,9 @@ dashboard:
   domain: dashboard.mydomain.com
   ingressRoute: false
 
-# entryPoints:
-#   http:
-#     address: ":80"
-#   https:
-#     address: ":443"
+entryPoints:
+  minecraft:
+    address: ":25565"
 
 additionalArguments:
   - "--api.insecure=true"
