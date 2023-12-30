@@ -1,14 +1,14 @@
 # Traefik Configuration for Minecraft
 
 # Entry Points
-# entryPoints:
-#   minecraft:
-#     address: ":25565"
+entryPoints:
+  minecraft:
+    address: ":25565"
 
 # # Minecraft Service Configuration
-# ports:
-#   minecraft:
-#     port: 25565
-#     expose: true
-#     exposedPort: 25565
-#     protocol: TCP
+ports:
+  minecraft:
+    port: 25565
+    expose: true
+    exposedPort: 25565
+    protocol: TCP
