@@ -30,8 +30,8 @@ spec:
       middlewares:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
-        - name: traefik-dashboard-auth
-          namespace: traefik
+        # - name: traefik-dashboard-auth
+        # namespace: traefik
 
   tls:
     certResolver: letsencrypt
