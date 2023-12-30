@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - traefik.yaml
   - traefik-dashboard.yaml
+  - traefik-config.yaml
