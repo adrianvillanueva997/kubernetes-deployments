@@ -39,11 +39,12 @@ spec:
             httpChallenge:
               entryPoint: web
             storage: /data/traefik/acme.json
-            persistence:
-              enabled: true
-              accessMode: ReadWriteOnce
-              path: /data/traefik/acme.json
-
+        persistence:
+          enabled: true
+          accessMode: ReadWriteOnce
+          size: 1Gi
+          path: /data/traefik
+          storageClass: ""
   syncPolicy:
     automated:
       prune: false
