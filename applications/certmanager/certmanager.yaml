@@ -9,7 +9,7 @@ spec:
     namespace: cert-manager
     server: https://kubernetes.default.svc
   source:
-    chart: jetstack/cert-manager
+    chart: cert-manager
     repoURL: https://charts.jetstack.io
     targetRevision: v1.13.3
     helm:
