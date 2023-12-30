@@ -34,39 +34,6 @@ spec:
     certResolver: letsencrypt
 
 ---
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-traefik-dashboard
-  namespace: traefik
-spec:
-  acme:
-    email: adrianvillanueva997@gmail.com
-    server: https://acme-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: letsencrypt-issuer-account-key
-    solvers:
-      - http01:
-          ingress:
-            serviceType: ClusterIP
-            ingressClassName: traefik
-
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: traefik-dashboard-certificate
-  namespace: traefik
-spec:
-  secretName: traefik-dashboard-tls
-  issuerRef:
-    name: letsencrypt-traefik-dashboard
-    kind: ClusterIssuer
-  commonName: test.thexiao77.com
-  dnsNames:
-    - test.thexiao77.com
-
----
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
@@ -76,18 +43,3 @@ spec:
   redirectScheme:
     scheme: https
     permanent: true
-
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: TLSOption
-metadata:
-  name: traefik-tls-traefik-dashboard
-  namespace: traefik
-spec:
-  minVersion: VersionTLS12
-  cipherSuites:
-    - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-    - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-    - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-    - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-  sniStrict: true
