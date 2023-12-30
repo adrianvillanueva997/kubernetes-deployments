@@ -26,6 +26,9 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
+  tls:
+    secretName: traefik-dashboard-tls
+    options: {}
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -43,3 +46,17 @@ spec:
           ingress:
             serviceType: ClusterIP
             ingressClassName: traefik
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: traefik-dashboard-certificate
+  namespace: traefik
+spec:
+  secretName: traefik-dashboard-tls
+  issuerRef:
+    name: letsencrypt-traefik-dashboard
+    kind: ClusterIssuer
+  commonName: test.thexiao77.com
+  dnsNames:
+    - test.thexiao77.com
