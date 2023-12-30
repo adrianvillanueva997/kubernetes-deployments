@@ -40,18 +40,19 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
+  name: traefik-dashboard-auth
+  namespace: traefik
+spec:
+  basicAuth:
+    secret: secret-traefik-dashboard-auth
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
   name: https-redirect-middleware-traefik-dashboard
   namespace: traefik
 spec:
   redirectScheme:
     scheme: https
     permanent: true
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: traefik-dashboard-auth
-  namespace: traefik
-spec:
-  basicAuth:
-    secret: secret-traefik-dashboard-auth
