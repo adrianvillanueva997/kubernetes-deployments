@@ -30,8 +30,8 @@ spec:
       middlewares:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
-      # tls:
-      #   secretName: traefik-dashboard-tls
+  tls:
+    secretName: traefik-dashboard-tls
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
