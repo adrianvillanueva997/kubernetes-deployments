@@ -24,7 +24,7 @@ spec:
       kind: Rule
       services:
         - name: argocd-web-ui
-          kind: Rule
+          port: 80
       # middlewares:
       #   - name: https-redirect-middleware-argocd-ui
       #     namespace: argocd
