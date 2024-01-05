@@ -33,7 +33,7 @@ spec:
         - name: traefik-dashboard-auth
           namespace: traefik
       tls:
-        secretName: traefik-dashboard-cert-staging
+        secretName: traefik-dashboard-cert-prod
 
 ---
 apiVersion: cert-manager.io/v1
@@ -108,6 +108,21 @@ spec:
   issuerRef:
     kind: Issuer
     name: letsencrypt-staging
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: traefik-dashboard-cert-prod
+  namespace: traefik
+spec:
+  commonName: test.thexiao77.com
+  secretName: traefik-dashboard-cert-prod
+  dnsNames:
+    - test.thexiao77.com
+  issuerRef:
+    kind: Issuer
+    name: letsencrypt-prod
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
