@@ -25,3 +25,4 @@ spec:
       services:
         - name: argocd-web-ui
           port: 80
+          namespace: argocd # Specify the namespace of the service
