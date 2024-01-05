@@ -15,8 +15,8 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: dashboard
-  namespace: traefik
+  name: argocd-ui
+  namespace: argocd
 spec:
   entryPoints:
     - web
