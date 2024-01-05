@@ -32,7 +32,6 @@ spec:
           namespace: traefik
       tls:
         certResolver: letsencrypt-production
-        secretName: traefik-dashboard-tls
         options: {}
 
 ---
