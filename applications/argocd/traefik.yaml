@@ -24,7 +24,7 @@ spec:
       kind: Rule
       services:
         - name: argocd-web-ui
-          kind: TraefikService
+          kind: Rule
       # middlewares:
       #   - name: https-redirect-middleware-argocd-ui
       #     namespace: argocd
