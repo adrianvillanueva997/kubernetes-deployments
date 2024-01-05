@@ -31,8 +31,7 @@ spec:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
       tls:
-        certResolver: traefik/letsencrypt-production
-        options: {}
+        secretName: traefik-dashboard-tls
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
