@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: letsencrypt-staging
+  name: cert-letsencrypt-staging
   namespace: traefik
 spec:
   acme:

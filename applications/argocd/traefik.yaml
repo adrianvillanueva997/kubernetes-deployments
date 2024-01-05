@@ -10,28 +10,26 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-# ---
-# apiVersion: traefik.containo.us/v1alpha1
-# kind: IngressRoute
-# metadata:
-#   name: argocd-ui
-#   namespace: argocd
-# spec:
-#   entryPoints:
-#     - web
-#     - websecure
-#   routes:
-#     - match: Host(`argocd.thexiao77.com`)
-#       kind: Rule
-#       services:
-#         - name: argocd-web-ui
-#           kind: TraefikService
-#       middlewares:
-#         - name: https-redirect-middleware-argocd-ui
-#           namespace: argocd
-#   tls:
-#     secretName: argocd-tls
-
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-ui
+  namespace: argocd
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`argocd.thexiao77.com`)
+      kind: Rule
+      services:
+        - name: argocd-web-ui
+          kind: TraefikService
+      # middlewares:
+      #   - name: https-redirect-middleware-argocd-ui
+      #     namespace: argocd
+  tls:
+    secretName: argocd-tls
 # ---
 # apiVersion: traefik.containo.us/v1alpha1
 # kind: Middleware
