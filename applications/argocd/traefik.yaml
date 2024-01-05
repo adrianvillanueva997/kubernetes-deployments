@@ -10,51 +10,50 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: argocd-ui
+#   namespace: argocd
+# spec:
+#   entryPoints:
+#     - web
+#     - websecure
+#   routes:
+#     - match: Host(`argocd.thexiao77.com`)
+#       kind: Rule
+#       services:
+#         - name: argocd-web-ui
+#           kind: TraefikService
+#       middlewares:
+#         - name: https-redirect-middleware-argocd-ui
+#           namespace: argocd
+#   tls:
+#     secretName: argocd-tls
 
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: argocd-ui
-  namespace: argocd
-spec:
-  entryPoints:
-    - web
-    - websecure
-  routes:
-    - match: Host(`argocd.thexiao77.com`)
-      kind: Rule
-      services:
-        - name: argocd-web-ui
-          kind: TraefikService
-      middlewares:
-        - name: https-redirect-middleware-argocd-ui
-          namespace: argocd
-  tls:
-    secretName: argocd-tls
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: https-redirect-middleware-argocd-ui
+#   namespace: argocd
+# spec:
+#   redirectScheme:
+#     scheme: https
+#     permanent: true
 
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: https-redirect-middleware-argocd-ui
-  namespace: argocd
-spec:
-  redirectScheme:
-    scheme: https
-    permanent: true
-
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: argocd-ui-certificate
-  namespace: argocd
-spec:
-  secretName: argocd-tls
-  issuerRef:
-    name: argocd-production
-    kind: Issuer
-  commonName: argocd.thexiao77.com
-  dnsNames:
-    - argocd.thexiao77.com
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: argocd-ui-certificate
+#   namespace: argocd
+# spec:
+#   secretName: argocd-tls
+#   issuerRef:
+#     name: argocd-production
+#     kind: Issuer
+#   commonName: argocd.thexiao77.com
+#   dnsNames:
+#     - argocd.thexiao77.com
