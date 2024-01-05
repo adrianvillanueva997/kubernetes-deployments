@@ -20,7 +20,7 @@ metadata:
 spec:
   entryPoints:
     - web
-    # - websecure
+    - websecure
   routes:
     - match: Host(`test.thexiao77.com`)
       kind: Rule
@@ -30,99 +30,6 @@ spec:
       middlewares:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
-        # - name: traefik-dashboard-auth
-        # namespace: traefik
-      tls:
-        secretName: traefik-dashboard-cert-prod
-
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: letsencrypt-prod
-spec:
-  acme:
-    email: adrianvillanueva997@gmail.com
-    server: https://acme-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: letsencrypt-prod-issuer-account-key
-    solvers:
-      - http01:
-          ingress:
-            serviceType: ClusterIP
-            ingressClassName: traefik
-
-# ---
-# apiVersion: bitnami.com/v1alpha1
-# kind: SealedSecret
-# metadata:
-#   name: secret-traefik-dashboard-auth
-#   namespace: traefik
-# spec:
-#   encryptedData:
-#     password: AgBWxd565ekm4wiWlA+R1AxMgsYHzLHRpz/zsECSiZnQ0E3r+I+QARMzGozUAvl2qWZe6X0XtR04GPmWpU4wtSzOV0xZtlkMwO04TXo3HwsJfEezOy7wyFvzVewOcJcGUTy+X2ankJsgXBGcfgilNqvoHR7YXz6sbNZ3L7Yix0839kJY9TDDJNOaZEWz02f9Pq6qARMJwGPXxWpxulf0nc5gFjDpxMMUbBWXt0WlT66YKCFr2gEKRubLYgDpIQYzgpwMM7MvouYR5vTfH7kqhVQvEiSg1uR8oWWUW6mUeOZgeYxuCq9nxd/sZCTcb5o3L6qo/usLP+DoyhPc0zEpFI8j6y9QBa5BDpeVIoY2Sa8VHXoDWoUqreEt9pn99RZLxjRLXgzC6RYWQbk14pUEqEBBSRxFjlgRzykwGGY6jB32wAI9kNYq6+BkCeoKvLtkE+iPyNVagg+9oaS/3RUz+cD7gdA5KHEU6663tki6XzOap0x/xuq3yIhv4L/HxCG8h0c7ERi2ronRgbPXxkibqVX+njO/tAbrKnBMxfMaSNEJ3m9EilfOjGiai5/+SmL4rZAnDVm9YbLwDe+6Zu3WaF7rgC9jEU9aBwwPa0rEoMioiwuuPcaBcGZAPG88XaoQS1NCBB06HSsLDAXbVBr1KFm0PL1XWh9Bkw7LQDwaMElG+piwch6DGD6fK9fhusYmo9mAteag2jgbm/F1BPgjCObkn5fUJscj4kW6DY5aRZO5A+p0lcLTCMuG11+rfirBpX+QCA/gC1i8nvctCNtkh6FMTQ==
-#   template:
-#     metadata:
-#       creationTimestamp: null
-#       name: secret-traefik-dashboard-auth
-#       namespace: traefik
-#     type: Opaque
-
-# ---
-# apiVersion: traefik.containo.us/v1alpha1
-# kind: Middleware
-# metadata:
-#   name: traefik-dashboard-auth
-#   namespace: traefik
-# spec:
-#   basicAuth:
-#     secret: secret-traefik-dashboard-auth
-
----
-apiVersion: cert-manager.io/v1
-kind: Issuer
-metadata:
-  name: letsencrypt-staging
-spec:
-  acme:
-    email: adrianvillanueva997@gmail.com
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: letsencrypt-issuer-account-key
-    solvers:
-      - http01:
-          ingress:
-            serviceType: ClusterIP
-            ingressClassName: traefik
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: traefik-dashboard-cert-staging
-  namespace: traefik
-spec:
-  commonName: test.thexiao77.com
-  secretName: traefik-dashboard-cert-staging
-  dnsNames:
-    - test.thexiao77.com
-  issuerRef:
-    kind: Issuer
-    name: letsencrypt-staging
-
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: traefik-dashboard-cert-prod
-  namespace: traefik
-spec:
-  commonName: test.thexiao77.com
-  secretName: traefik-dashboard-cert-prod
-  dnsNames:
-    - test.thexiao77.com
-  issuerRef:
-    kind: Issuer
-    name: letsencrypt-prod
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
