@@ -1,0 +1,60 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-web-ui
+  namespace: argocd
+spec:
+  selector:
+    app: argocd-server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dashboard
+  namespace: traefik
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`argocd.thexiao77.com`)
+      kind: Rule
+      services:
+        - name: argocd-web-ui
+          kind: TraefikService
+      middlewares:
+        - name: https-redirect-middleware-argocd-ui
+          namespace: argocd
+  tls:
+    secretName: argocd-tls
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: https-redirect-middleware-traefik-dashboard
+  namespace: argocd
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-ui-certificate
+  namespace: argocd
+spec:
+  secretName: argocd-tls
+  issuerRef:
+    name: argocd-production
+    kind: Issuer
+  commonName: argocd.thexiao77.com
+  dnsNames:
+    - argocd.thexiao77.com
