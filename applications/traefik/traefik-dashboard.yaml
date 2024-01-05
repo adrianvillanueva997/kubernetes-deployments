@@ -68,15 +68,15 @@ spec:
 #       namespace: traefik
 #     type: Opaque
 
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: traefik-dashboard-auth
-  namespace: traefik
-spec:
-  basicAuth:
-    secret: secret-traefik-dashboard-auth
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: traefik-dashboard-auth
+#   namespace: traefik
+# spec:
+#   basicAuth:
+#     secret: secret-traefik-dashboard-auth
 
 ---
 apiVersion: cert-manager.io/v1
