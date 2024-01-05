@@ -30,6 +30,9 @@ spec:
       middlewares:
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
+      tls:
+        secretName: traefik-dashboard-tls
+        options: {}
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -41,3 +44,18 @@ spec:
   redirectScheme:
     scheme: https
     permanent: true
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: traefik-dashboard-certificate
+  namespace: traefik
+spec:
+  secretName: traefik-dashboard-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: test.thexiao77.com
+  dnsNames:
+    - test.thexiao77.com
