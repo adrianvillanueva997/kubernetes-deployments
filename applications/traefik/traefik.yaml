@@ -16,26 +16,26 @@ spec:
       releaseName: traefik
       valueFiles:
         - values.yaml # Include the values.yaml file
-      # values: |
-      #   api:
-      #     insecure: true
-      #     dashboard: true
-      #   ports:
-      #     minecraft:
-      #       port: 25565
-      #       expose: true
-      #       exposedPort: 25565
-      #       protocol: TCP
-      #   additionalArguments:
-      #     - "--providers.kubernetescrd.namespaces=traefik"
-      #   certificatesResolvers:
-      #     myresolver:
-      #       acme:
-      #         email: your-email@example.com
-      #         storage: acme.json
-      #         httpChallenge:
-      #           # used during the challenge
-      #           entryPoint: web
+      values: |
+        api:
+          insecure: true
+          dashboard: true
+        ports:
+          minecraft:
+            port: 25565
+            expose: true
+            exposedPort: 25565
+            protocol: TCP
+        additionalArguments:
+          - "--providers.kubernetescrd.namespaces=traefik"
+        certificatesResolvers:
+          myresolver:
+            acme:
+              email: your-email@example.com
+              storage: acme.json
+              httpChallenge:
+                # used during the challenge
+                entryPoint: web
   syncPolicy:
     automated:
       prune: false
