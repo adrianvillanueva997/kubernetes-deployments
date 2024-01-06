@@ -16,6 +16,14 @@ spec:
       releaseName: metallb
       valueFiles:
         - values.yaml
+      values: |
+        configInline: |
+          address-pools:
+          - name: default
+            protocol: layer2
+            addresses:
+            - 167.86.69.118
+
   syncPolicy:
     automated:
       prune: false
