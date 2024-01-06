@@ -52,7 +52,7 @@ metadata:
   namespace: traefik
 spec:
   selector:
-    app: traefik-ingress-controller
+    app: traefik
   ports:
     - protocol: TCP
       name: web
