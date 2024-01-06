@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - argocd
-  - traefik
-  - certmanager
-  - sealedsecrets
-  - metallb
+  # - traefik
+  # - certmanager
+  # - sealedsecrets
+  # - metallb
