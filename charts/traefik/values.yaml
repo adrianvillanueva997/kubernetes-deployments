@@ -2,3 +2,5 @@ traefik:
   dashboard:
   enabled: true
   domain: "test.thexiao77.com"
+  ingressRoute:
+    enabled: true
