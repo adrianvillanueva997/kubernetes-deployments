@@ -62,4 +62,4 @@ spec:
       name: websecure
       port: 443
       targetPort: 443
-  type: NodePort # or LoadBalancer if you prefer
+  type: LoadBalancer
