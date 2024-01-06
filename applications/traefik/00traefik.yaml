@@ -31,14 +31,14 @@ spec:
         additionalArguments:
           - "--providers.kubernetesingress.ingressclass=traefik"
           - "--providers.kubernetescrd.namespaces=_all"
-        certificatesResolvers:
-          myresolver:
-            acme:
-              email: your-email@example.com
-              storage: acme.json
-              httpChallenge:
-                # used during the challenge
-                entryPoint: web
+        # certificatesResolvers:
+        #   myresolver:
+        #     acme:
+        #       email: your-email@example.com
+        #       storage: acme.json
+        #       httpChallenge:
+        #         # used during the challenge
+        #         entryPoint: web
   syncPolicy:
     automated:
       prune: false
@@ -46,3 +46,21 @@ spec:
       allowEmpty: false
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: traefik-dashboard
+  namespace: traefik
+spec:
+  rules:
+    - host: test.thexiao77.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: traefik
+                port:
+                  number: 8080
