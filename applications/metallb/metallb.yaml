@@ -15,7 +15,7 @@ spec:
     helm:
       releaseName: metallb
       valueFiles:
-        - values.yaml # Include the values.yaml file
+        - values.yaml
   syncPolicy:
     automated:
       prune: false
