@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
-    path: charts/baseapp/
+    path: charts/templates/
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
