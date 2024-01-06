@@ -31,6 +31,7 @@ spec:
         additionalArguments:
           - "--providers.kubernetesingress.ingressclass=traefik"
           - "--providers.kubernetescrd.namespaces=_all"
+          "--log.level=DEBUG"
         # certificatesResolvers:
         #   myresolver:
         #     acme:
