@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - argocd.yaml
   - certificates.yaml
-  - ingress.yaml
+  # - ingress.yaml

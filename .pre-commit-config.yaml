@@ -22,10 +22,10 @@ repos:
       - id: debug-statements
         name: "⚙️ Check debug statements"
 
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
-    hooks:
-      - id: prettier
-        name: 🖌️ Format code with Prettier
-        files: \.(json|markdown|md|yaml|yml)$
-        args: [--write]
+  # - repo: https://github.com/pre-commit/mirrors-prettier
+  #   rev: v4.0.0-alpha.8
+  #   hooks:
+  #     - id: prettier
+  #       name: 🖌️ Format code with Prettier
+  #       files: \.(json|markdown|md|yaml|yml)$
+  #       args: [--write]

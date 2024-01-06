@@ -27,7 +27,6 @@ spec:
             exposedPort: 25565
             protocol: TCP
         additionalArguments:
-          - "--providers.kubernetescrd.namespaces=traefik"
           - "--providers.kubernetesingress.ingressclass=traefik"
           - "--providers.kubernetescrd.namespaces=_all"
         certificatesResolvers:
@@ -45,3 +44,4 @@ spec:
       allowEmpty: false
     syncOptions:
       - CreateNamespace=true
+---
