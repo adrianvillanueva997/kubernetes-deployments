@@ -1,12 +1,22 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: https-redirect-middleware-traefik-dashboard
+  namespace: traefik
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: dashboard
+  name: traefik-dashboard-web
   namespace: traefik
 spec:
   entryPoints:
     - web
-    - websecure
   routes:
     - match: Host(`test.thexiao77.com`)
       kind: Rule
@@ -21,15 +31,21 @@ spec:
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
+kind: IngressRoute
 metadata:
-  name: https-redirect-middleware-traefik-dashboard
+  name: traefik-dashboard-websecure
   namespace: traefik
 spec:
-  redirectScheme:
-    scheme: https
-    permanent: true
-
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`test.thexiao77.com`)
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
+  tls:
+    secretName: traefik-dashboard-tls
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
