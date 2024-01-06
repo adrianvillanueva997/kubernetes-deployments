@@ -60,24 +60,3 @@ spec:
   commonName: test.thexiao77.com
   dnsNames:
     - test.thexiao77.com
-
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: traefik-dashboard
-  namespace: traefik
-  annotations:
-    kubernetes.io/ingress.class: traefik
-spec:
-  rules:
-    - host: test.thexiao77.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: traefik-dashboard-web
-                port:
-                  number: 80
