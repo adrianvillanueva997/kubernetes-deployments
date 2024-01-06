@@ -57,9 +57,9 @@ spec:
             path: "/"
             backend:
               service:
-                name: api
+                name: traefik
                 port:
-                  number: 80
+                  number: 8080
   tls:
     - hosts:
         - test.thexiao77.com
