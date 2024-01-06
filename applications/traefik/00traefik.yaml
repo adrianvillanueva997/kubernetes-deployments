@@ -11,11 +11,9 @@ spec:
   source:
     chart: traefik
     repoURL: https://traefik.github.io/charts
-    targetRevision: 25.0.0
+    targetRevision: 26.0.0
     helm:
       releaseName: traefik
-      valueFiles:
-        - values.yaml # Include the values.yaml file
       values: |
         service:
           type: LoadBalancer
@@ -31,15 +29,6 @@ spec:
         additionalArguments:
           - "--providers.kubernetesingress.ingressclass=traefik"
           - "--providers.kubernetescrd.namespaces=_all"
-          "--log.level=DEBUG"
-        # certificatesResolvers:
-        #   myresolver:
-        #     acme:
-        #       email: your-email@example.com
-        #       storage: acme.json
-        #       httpChallenge:
-        #         # used during the challenge
-        #         entryPoint: web
   syncPolicy:
     automated:
       prune: false
