@@ -21,3 +21,12 @@ spec:
       allowEmpty: false
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: sinlge-ip-pool
+  namespace: metallb-system
+spec:
+  addresses:
+    - 167.86.69.118/32
