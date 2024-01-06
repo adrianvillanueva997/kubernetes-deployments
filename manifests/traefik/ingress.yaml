@@ -1,17 +1,17 @@
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: traefik
-# spec:
-#   type: LoadBalancer
-#   ports:
-#     - protocol: TCP
-#       port: 80
-#       name: web
-#       targetPort: 80
-#     - protocol: TCP
-#       port: 443
-#       targetPort: 443
-#       name: websecure
-#   selector:
-#     app: traefik
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: traefik-dashboard
+  namespace: traefik
+spec:
+  rules:
+    - host: test.thexiao77.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: traefik
+                port:
+                  number: 80
