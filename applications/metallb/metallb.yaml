@@ -16,11 +16,6 @@ spec:
       releaseName: metallb
       valueFiles:
         - values.yaml
-      values: |
-        configFrom:
-          configMapRef:
-            namespace: metallb
-            name: config
   syncPolicy:
     automated:
       prune: false
@@ -29,15 +24,12 @@ spec:
     syncOptions:
       - CreateNamespace=true
 ---
-apiVersion: v1
-kind: ConfigMap
+apiVersion: metallb.io/v2alpha1
+kind: IPAddressPool
 metadata:
   namespace: metallb
-  name: config
-data:
-  config: |
-    address-pools:
-    - name: default
-      protocol: layer2
-      addresses:
-      - 167.86.69.118/32
+  name: default
+spec:
+  addresses:
+    - 167.86.69.118/32
+  protocol: layer2
