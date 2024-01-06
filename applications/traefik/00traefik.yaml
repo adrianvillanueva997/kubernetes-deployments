@@ -55,9 +55,11 @@ spec:
     app: traefik-ingress-controller
   ports:
     - protocol: TCP
+      name: web
       port: 80
       targetPort: 80
     - protocol: TCP
+      name: websecure
       port: 443
       targetPort: 443
   type: NodePort # or LoadBalancer if you prefer
