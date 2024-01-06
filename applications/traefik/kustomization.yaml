@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - 00traefik.yaml
-  - 02traefik-dashboard.yaml
+  # - 02traefik-dashboard.yaml
   - 01certificates.yaml
 
 configMapGenerator:
