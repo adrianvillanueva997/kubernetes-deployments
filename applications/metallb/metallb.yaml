@@ -19,7 +19,7 @@ spec:
       values: |
         configFrom:
           configMapRef:
-            namespace: metallb-system
+            namespace: metallb
             name: config
   syncPolicy:
     automated:
@@ -32,7 +32,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: metallb-system
+  namespace: metallb
   name: config
 data:
   config: |
