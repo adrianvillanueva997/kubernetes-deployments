@@ -7,9 +7,11 @@ spec:
   ports:
     - protocol: TCP
       port: 80
+      name: web
       targetPort: 80
     - protocol: TCP
       port: 443
       targetPort: 443
+      name: websecure
   selector:
     app: traefik
