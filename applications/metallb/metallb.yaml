@@ -40,4 +40,4 @@ data:
     - name: default
       protocol: layer2
       addresses:
-      - 167.86.69.118/24
+      - 167.86.69.118
