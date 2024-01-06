@@ -14,8 +14,6 @@ spec:
     targetRevision: 0.13.12
     helm:
       releaseName: metallb
-      valueFiles:
-        - values.yaml
   syncPolicy:
     automated:
       prune: false
@@ -23,13 +21,3 @@ spec:
       allowEmpty: false
     syncOptions:
       - CreateNamespace=true
----
-apiVersion: metallb.io/v2alpha1
-kind: IPAddressPool
-metadata:
-  namespace: metallb
-  name: default
-spec:
-  addresses:
-    - 167.86.69.118/32
-  protocol: layer2
