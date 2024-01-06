@@ -1,18 +1,22 @@
-# apiVersion: traefik.containo.us/v1alpha1
-# kind: IngressRoute
-# metadata:
-#   name: traefik-dashboard
-#   namespace: traefik
-# spec:
-#   entryPoints:
-#     - web
-#     - websecure
-#   routes:
-#     - match: Host(`test.thexiao77.com`)
-#       kind: Rule
-#       services:
-#         - name: api@internal
-#           kind: TraefikService
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+  namespace: traefik
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`test.thexiao77.com`)
+      kind: Rule
+      services:
+        - name: traefik
+          port: 8080
+  tls:
+    certResolver: default
+
+---
 # middlewares:
 #   - name: https-redirect-middleware-traefik-dashboard
 #     namespace: traefik
@@ -43,24 +47,24 @@
 #   dnsNames:
 #     - test.thexiao77.com
 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: traefik-dashboard
-  namespace: traefik
-spec:
-  rules:
-    - host: test.thexiao77.com
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/"
-            backend:
-              service:
-                name: traefik
-                port:
-                  number: 8080
-  tls:
-    - hosts:
-        - test.thexiao77.com
-      secretName: traefik-dashboard-tls
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: traefik-dashboard
+#   namespace: traefik
+# spec:
+#   rules:
+#     - host: test.thexiao77.com
+#       http:
+#         paths:
+#           - pathType: Prefix
+#             path: "/"
+#             backend:
+#               service:
+#                 name: traefik
+#                 port:
+#                   number: 8080
+#   tls:
+#     - hosts:
+#         - test.thexiao77.com
+#       secretName: traefik-dashboard-tls
