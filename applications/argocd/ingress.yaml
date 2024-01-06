@@ -4,7 +4,7 @@ metadata:
   name: argocd-web-ui
   namespace: argocd
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: argo-argocd-server
   ports:

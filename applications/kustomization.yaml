@@ -6,4 +6,4 @@ resources:
   - traefik
   - certmanager
   - sealedsecrets
-  - metallb
+  # - metallb
