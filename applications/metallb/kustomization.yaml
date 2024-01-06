@@ -6,5 +6,5 @@ resources:
 
 configMapGenerator:
   - name: metallb-config
-    files:
-      - values.yaml
+    # files:
+    #   - values.yaml
