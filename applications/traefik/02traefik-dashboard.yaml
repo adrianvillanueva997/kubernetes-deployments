@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefik-dashboard-web
+  name: traefik-dashboard
   namespace: traefik
 spec:
   entryPoints:
@@ -13,32 +13,32 @@ spec:
       services:
         - name: api@internal
           kind: TraefikService
-      middlewares:
-        - name: https-redirect-middleware-traefik-dashboard
-          namespace: traefik
-  tls:
-    secretName: traefik-dashboard-tls
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: https-redirect-middleware-traefik-dashboard
-  namespace: traefik
-spec:
-  redirectScheme:
-    scheme: https
-    permanent: true
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: traefik-dashboard-certificate
-  namespace: traefik
-spec:
-  secretName: traefik-dashboard-tls
-  issuerRef:
-    name: letsencrypt-production
-    kind: Issuer
-  commonName: test.thexiao77.com
-  dnsNames:
-    - test.thexiao77.com
+      # middlewares:
+      #   - name: https-redirect-middleware-traefik-dashboard
+      #     namespace: traefik
+#   tls:
+#     secretName: traefik-dashboard-tls
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: https-redirect-middleware-traefik-dashboard
+#   namespace: traefik
+# spec:
+#   redirectScheme:
+#     scheme: https
+#     permanent: true
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: traefik-dashboard-certificate
+#   namespace: traefik
+# spec:
+#   secretName: traefik-dashboard-tls
+#   issuerRef:
+#     name: letsencrypt-production
+#     kind: Issuer
+#   commonName: test.thexiao77.com
+#   dnsNames:
+#     - test.thexiao77.com
