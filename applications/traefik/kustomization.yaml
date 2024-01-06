@@ -5,3 +5,8 @@ resources:
   - traefik.yaml
   - traefik-dashboard.yaml
   - certificates.yaml
+
+configMapGenerator:
+  - name: traefik-config
+    files:
+      - values.yaml
