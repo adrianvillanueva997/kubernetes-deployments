@@ -17,6 +17,8 @@ spec:
       valueFiles:
         - values.yaml # Include the values.yaml file
       values: |
+        service:
+          type: LoadBalancer
         api:
           insecure: true
           dashboard: true
@@ -44,22 +46,22 @@ spec:
       allowEmpty: false
     syncOptions:
       - CreateNamespace=true
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: traefik-service
-  namespace: traefik
-spec:
-  selector:
-    app: traefik
-  ports:
-    - protocol: TCP
-      name: web
-      port: 80
-      targetPort: 80
-    - protocol: TCP
-      name: websecure
-      port: 443
-      targetPort: 443
-  type: LoadBalancer
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: traefik-service
+#   namespace: traefik
+# spec:
+#   selector:
+#     app: traefik
+#   ports:
+#     - protocol: TCP
+#       name: web
+#       port: 80
+#       targetPort: 80
+#     - protocol: TCP
+#       name: websecure
+#       port: 443
+#       targetPort: 443
+#   type: LoadBalancer
