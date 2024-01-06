@@ -17,13 +17,10 @@ spec:
       valueFiles:
         - values.yaml
       values: |
-        configInline: |
-          address-pools:
-          - name: default
-            protocol: layer2
-            addresses:
-            - 167.86.69.118
-
+        configFrom:
+          configMapRef:
+            namespace: metallb-system
+            name: config
   syncPolicy:
     automated:
       prune: false
@@ -31,3 +28,16 @@ spec:
       allowEmpty: false
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 167.86.69.118/24
