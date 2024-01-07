@@ -23,6 +23,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: nginx-lmao-pv
+  namespace: nginx-lmao
 spec:
   capacity:
     storage: 10Gi
@@ -30,7 +31,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: local-storage
+  storageClassName: nginx-lmao-local-storage
   local:
     path: /mnt/nginx-lmao
   nodeAffinity:
