@@ -22,3 +22,20 @@ spec:
   commonName: test.thexiao77.com
   dnsNames:
     - test.thexiao77.com
+
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: secret-auth-traefik-dashboard
+  namespace: traefik
+spec:
+  encryptedData:
+    users: AgB0J4t4S1r1PLxSQw+Q7zujnGvVuhXIxSSuqQQHgT2eEf/VREENAXoC7E8CCYTWMNOv12iarfl740YZxEmssX/11+aJg3oaQh9gY1eupJVI+oEPNIMJPx1gFUAupZ0TTwEdYJtL7MUDGfIBVJPc2+nFmorAoAE1Y5C6k3XBu5yznaW06XigFBlikKdLkPwOcwX+ne/Tbw77m6eb/ULfSf59dCDiONrhbz3MfmaGOCQFQxvLpfLyNnqJcsuSaxtBPZn5Adf5mPWj7irqvlemI8vd0STjsvBEkrBtVQWJEBpUtX41pKRNaaPiwSChTP4+FmQKO6gpjxRQ/5W6esKxaTBHbhr3sks4x1j5BkYK7fW1DKTFxMCu+vpv69Gb3+M4WYK0kgmxyY1TCRjvRfjYqDYeIlFVMCf0CrjMd8hGvloppwq6aObGr85llyHRS8OmtV50cCy8xu8H4DWVtW1zROJOmKNlbFEiFsdKonPlLvWjFGUF01F6KC41OAAxuFuhauPVmQE8dSmHXGlmbsal3y548vzq3o43Xo5w59wafiIxKGh7bo9qz/h1xYOGQoKRWuzrNdpuMraPeIDIcU7r0xiqrio0OsPQNUj13IXNsTfM4ykDRqLmKf6054Iy+EpHytMiB3VzxS+OmWa9Naw4yhzDjbcuduBCIwbKLz1Dep1qlDvpq/jlDDb0qKdb0jWAYlFguycYHEd1mmcGLyhccQ+whx/rj/h1QPxuVbbcSlv6Btw=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: secret-auth-traefik-dashboard
+      namespace: traefik
+    type: Opaque
