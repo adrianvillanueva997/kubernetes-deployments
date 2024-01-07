@@ -20,4 +20,4 @@ traefik:
       port: 25565
       expose: true
       exposedPort: 25565
-      protocol: tcp
+      protocol: TCP
