@@ -30,6 +30,8 @@ spec:
               value: mariadb-ts3-ukranian
             - name: TS3SERVER_DB_USER
               value: ts3-ukranian
+            - name: TS3SERVER_DB_NAME
+              value: ts3-ukranian
             - name: TS3SERVER_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
