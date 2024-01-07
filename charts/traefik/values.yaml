@@ -6,6 +6,8 @@ traefik:
       matchRule: Host(`test.thexiao77.com`)
       entryPoints: ["web", "websecure"]
       middlewares:
+        - name: auth-traefik-dashboard
+          namespace: traefik
         - name: https-redirect-middleware-traefik-dashboard
           namespace: traefik
       tls:
