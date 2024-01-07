@@ -4,7 +4,7 @@ metadata:
   name: ts3-ukranian-pvc
   namespace: ts3-ukranian
 spec:
-  storageClassName: ts3-local-storage
+  storageClassName: ts3-ukranian-local-storage
   accessModes:
     - ReadWriteOnce
   resources:
