@@ -18,4 +18,12 @@ spec:
           image: nginx:1.25.3-alpine
           ports:
             - containerPort: 80
+          volumeMounts:
+            - name: nginx-storage
+              mountPath: /mnt/nginx-lmao
+      volumes:
+        - name: nginx-storage
+          hostPath:
+            path: /mnt/nginx-lmao
+            type: DirectoryOrCreate
       restartPolicy: Always
