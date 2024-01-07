@@ -12,10 +12,10 @@ traefik:
           namespace: traefik
       tls:
         secretName: traefik-dashboard-tls
-  ports:
-    minecraft:
-      expose: true
-      exposedPort: 25565
-      protocol: TCP
-  additionalArguments:
-    - "--entrypoints.minecraft.address=:25565/tcp"
+  # ports:
+  #   minecraft:
+  #     expose: true
+  #     exposedPort: 25565
+  #     protocol: TCP
+  # additionalArguments:
+  #   - "--entrypoints.minecraft.address=:25565/tcp"
