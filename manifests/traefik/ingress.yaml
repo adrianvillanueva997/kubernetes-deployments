@@ -39,3 +39,12 @@ spec:
       name: secret-auth-traefik-dashboard
       namespace: traefik
     type: Opaque
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: auth-traefik-dashboard
+  namespace: traefik
+spec:
+  basicAuth:
+    secret: secret-auth-traefik-dashboard
