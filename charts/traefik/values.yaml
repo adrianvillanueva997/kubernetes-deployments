@@ -1,7 +1,7 @@
 traefik:
   ingressRoute:
-  dashboard:
-    enabled: true
-    # Custom match rule with host domain
-    matchRule: Host(`test.thexiao77.com`)
-    entryPoints: ["web"]
+    dashboard:
+      enabled: true
+      # Custom match rule with host domain
+      matchRule: Host(`test.thexiao77.com`)
+      entryPoints: ["web"]
