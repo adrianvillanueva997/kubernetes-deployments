@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - 00app.yaml
+  - 01volume.yaml
   - 01certificates.yaml
   - 02service.yaml
   - 03ingress.yaml
