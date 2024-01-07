@@ -3,7 +3,7 @@ traefik:
     dashboard:
       enabled: true
       # Custom match rule with host domain
-      matchRule: Host(`test.thexiao77.com`)
+      matchRule: Host(`traefik.thexiao77.com`)
       entryPoints: ["web", "websecure"]
       middlewares:
         - name: auth-traefik-dashboard

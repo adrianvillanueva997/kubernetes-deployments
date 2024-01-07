@@ -19,9 +19,9 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: Issuer
-  commonName: test.thexiao77.com
+  commonName: traefik.thexiao77.com
   dnsNames:
-    - test.thexiao77.com
+    - traefik.thexiao77.com
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
