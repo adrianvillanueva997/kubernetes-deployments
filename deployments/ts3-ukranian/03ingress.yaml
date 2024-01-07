@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - ts3
   routes:
-    - match: HostSNI(`ts3.thexiao77.com`)
+    - match: HostSNI(`*`)
       services:
         - name: ts3-ukranian
           port: 9987
@@ -21,7 +21,7 @@ spec:
   entryPoints:
     - ts3filetransfer
   routes:
-    - match: HostSNI(`ts3.thexiao77.com`)
+    - match: HostSNI(`*`)
       services:
         - name: ts3-ukranian
           port: 30033
