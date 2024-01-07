@@ -17,3 +17,5 @@ traefik:
       expose: true
       exposedPort: 25565
       protocol: TCP
+  additionalArguments:
+    - "--entrypoints.minecraft.address=:25565/tcp"
