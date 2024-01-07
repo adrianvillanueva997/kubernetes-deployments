@@ -23,12 +23,12 @@ traefik:
       expose: true
       exposedPort: 25565
       protocol: TCP
-    teamspeak:
+    ts3:
       port: 9987
       expose: true
       exposedPort: 9987
       protocol: UDP
-    teamspeakfiletransfer:
+    ts3filetransfer:
       port: 30033
       expose: true
       exposedPort: 30033
