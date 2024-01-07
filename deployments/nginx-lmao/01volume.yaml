@@ -4,9 +4,17 @@ metadata:
   name: nginx-lmao-pvc
   namespace: nginx-lmao
 spec:
-  storageClassName: local-storage
+  storageClassName: nginx-lmao-local-storage
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nginx-lmao-local-storage
+  namespace: nginx-lmao
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
