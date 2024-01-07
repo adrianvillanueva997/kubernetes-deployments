@@ -27,11 +27,13 @@ spec:
             - name: TS3SERVER_DB_SQLCREATEPATH
               value: create_mariadb
             - name: TS3SERVER_DB_HOST
-              value: mariadb-ts3-ukranian
+              value: mariadb-ukranian
             - name: TS3SERVER_DB_USER
-              value: ts3-ukranian
+              value: root
             - name: TS3SERVER_DB_NAME
-              value: ts3-ukranian
+              value: teamspeak
+            - name: TS3SERVER_WAITUNTILREADY
+              value: "30"
             - name: TS3SERVER_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -75,7 +77,5 @@ spec:
                   name: secret-mariadb-ukranian-password
                   key: password
             - name: MYSQL_DATABASE
-              value: ts3-ukranian
-            - name: MYSQL_USER
-              value: ts3-ukranian
+              value: teamspeak
       restartPolicy: Always
