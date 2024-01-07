@@ -8,7 +8,7 @@ traefik:
       middlewares:
         - name: auth-traefik-dashboard
           namespace: traefik
-        - name: https-redirect-middleware-traefik-dashboard
+        - name: middleware-https-traefik-dashboard
           namespace: traefik
       tls:
         secretName: traefik-dashboard-tls

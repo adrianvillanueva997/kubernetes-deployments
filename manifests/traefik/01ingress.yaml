@@ -1,7 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: https-redirect-middleware-traefik-dashboard
+  name: middleware-https-traefik-dashboard
   namespace: traefik
 spec:
   redirectScheme:
