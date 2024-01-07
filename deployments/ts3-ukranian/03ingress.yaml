@@ -1,0 +1,43 @@
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: nginx-lmao-ingressroute
+#   namespace: nginx-lmao
+# spec:
+#   entryPoints:
+#     - web
+#     - websecure
+#   routes:
+#     - match: Host(`lmao.thexiao77.com`)
+#       kind: Rule
+#       services:
+#         - name: nginx-lmao
+#           port: 80
+#       middlewares:
+#         - name: middleware-https-nginx-lmao
+#   tls:
+#     secretName: nginx-lmao-tls
+# ---
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: nginx-lmao-tls
+#   namespace: nginx-lmao
+# spec:
+#   secretName: nginx-lmao-tls
+#   issuerRef:
+#     name: nginx-lmao-letsencrypt-production
+#     kind: Issuer
+#   commonName: lmao.thexiao77.com
+#   dnsNames:
+#     - lmao.thexiao77.com
+# ---
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: Middleware
+# metadata:
+#   name: middleware-https-nginx-lmao
+#   namespace: nginx-lmao
+# spec:
+#   redirectScheme:
+#     scheme: https
+#     permanent: true

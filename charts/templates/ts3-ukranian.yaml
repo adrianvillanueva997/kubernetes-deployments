@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ts3-ukranian
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
+    path: deployments/ts3-ukranian
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: ts3-ukranian
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

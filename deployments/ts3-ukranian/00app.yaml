@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts3-ukranian
+  namespace: ts3-ukranian
+spec:
+  selector:
+    matchLabels:
+      app: ts3-ukranian
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ts3-ukranian
+    spec:
+      containers:
+        - name: ts3-ukranian
+          image: teamspeak:3.13.7
+          ports:
+            - containerPort: 9987 # Voice
+            - containerPort: 30033 # FileTransfer
+          env:
+            - name: TS3SERVER_LICENSE
+              value: accept
+            - name: TS3SERVER_DB_PLUGIN
+              value: ts3db_mariadb
+            - name: TS3SERVER_DB_SQLCREATEPATH
+              value: create_mariadb
+            - name: TS3SERVER_DB_HOST
+              value: mariadb-ts3-ukranian
+            - name: TS3SERVER_DB_USER
+              value: ts3-ukranian
+            - name: TS3SERVER_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mariadb-ukranian-password
+                  key: password
+          volumeMounts:
+            - name: ts3-ukranian
+              mountPath: /var/ts3-ukranian
+
+        - name: mariadb-ts3-ukranian
+          image: mariadb:11.2.2-jammy
+          ports:
+            - containerPort: 3306 # MariaDB
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-mariadb-ukranian-password
+                  key: password
+            - name: MYSQL_DATABASE
+              value: ts3-ukranian
+      volumes:
+        - name: ts3-ukranian
+          persistentVolumeClaim:
+            claimName: ts3-ukranian-pvc
+      restartPolicy: Always
