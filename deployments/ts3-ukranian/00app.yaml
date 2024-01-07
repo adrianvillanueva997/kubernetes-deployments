@@ -41,7 +41,7 @@ spec:
                   key: password
           volumeMounts:
             - name: ts3-ukranian
-              mountPath: /var/ts3-ukranian
+              mountPath: /var/ts3server
 
       volumes:
         - name: ts3-ukranian
