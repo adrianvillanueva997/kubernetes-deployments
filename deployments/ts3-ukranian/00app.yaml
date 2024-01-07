@@ -51,17 +51,17 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ts3-ukranian
+  name: mariadb-ukranian
   namespace: ts3-ukranian
 spec:
   selector:
     matchLabels:
-      app: ts3-ukranian
+      app: mariadb-ukranian
   replicas: 1
   template:
     metadata:
       labels:
-        app: ts3-ukranian
+        app: mariadb-ukranian
     spec:
       containers:
         - name: mariadb-ts3-ukranian
