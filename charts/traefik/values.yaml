@@ -16,7 +16,7 @@ traefik:
   additionalArguments:
     - "--entryPoints.minecraft.address=:25565/tcp"
     - "--entryPoints.teamspeak.address=:9987/udp"
-    - "--entryPoints.teamspeakfiletransfer.address=:30033/tcp"
+    - "--entryPoints.ts3filetransfer.address=:30033/tcp"
   ports:
     minecraft:
       port: 25565
