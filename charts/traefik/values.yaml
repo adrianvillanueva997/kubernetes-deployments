@@ -4,7 +4,7 @@ traefik:
       enabled: true
       # Custom match rule with host domain
       matchRule: Host(`traefik.thexiao77.com`)
-      entryPoints: ["web", "websecure", "minecraft"]
+      entryPoints: ["web", "websecure"]
       middlewares:
         - name: auth-traefik-dashboard
           namespace: traefik
