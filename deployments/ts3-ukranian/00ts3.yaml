@@ -39,20 +39,6 @@ spec:
             - name: ts3-ukranian
               mountPath: /var/ts3-ukranian
 
-        - name: mariadb-ts3-ukranian
-          image: mariadb:11.2.2-jammy
-          ports:
-            - containerPort: 3306 # MariaDB
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: secret-mariadb-ukranian-password
-                  key: password
-            - name: MYSQL_DATABASE
-              value: ts3-ukranian
-            - name: MYSQL_USER
-              value: ts3-ukranian
       volumes:
         - name: ts3-ukranian
           persistentVolumeClaim:

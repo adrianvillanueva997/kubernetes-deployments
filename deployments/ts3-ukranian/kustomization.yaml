@@ -2,7 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - 00app.yaml
+  - 00ats3.yaml
+  - 00mariadb.yaml
   - 01secrets.yaml
   - 01volume.yaml
   - 02service.yaml
