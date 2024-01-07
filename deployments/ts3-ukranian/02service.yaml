@@ -4,7 +4,7 @@ metadata:
   name: mariadb-ts3-ukranian
 spec:
   selector:
-    app: ts3-ukranian
+    app: mariadb-ukranian
   ports:
     - protocol: TCP
       port: 3306
