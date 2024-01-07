@@ -51,6 +51,8 @@ spec:
                   key: password
             - name: MYSQL_DATABASE
               value: ts3-ukranian
+            - name: MYSQL_USER
+              value: ts3-ukranian
       volumes:
         - name: ts3-ukranian
           persistentVolumeClaim:
