@@ -30,6 +30,7 @@ spec:
           port: 30033
   tls:
     secretName: ts3-ukranian-tls
+    passHostHeader: true
 
 ---
 apiVersion: cert-manager.io/v1
