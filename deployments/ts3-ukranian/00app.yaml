@@ -78,4 +78,11 @@ spec:
                   key: password
             - name: MYSQL_DATABASE
               value: teamspeak
+          volumeMounts:
+            - name: mariadb-ukranian
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mariadb-ukranian
+          persistentVolumeClaim:
+            claimName: mariadb-pvc
       restartPolicy: Always
