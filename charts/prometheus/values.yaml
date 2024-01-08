@@ -1,13 +1,3 @@
 prometheus:
-  server:
-    storageSpec:
-      storageClassName: "standard"
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 8Gi
-alertmanager:
-  storage:
-    storageClassName: "standard"
-    size: 2Gi
+  nodeSelector:
+    failure-domain.beta.kubernetes.io/zone: vmi1572623.contaboserver.net
