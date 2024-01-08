@@ -1,3 +1,13 @@
 prometheus:
-  alertmanager:
-    enabled: false
+  server:
+    storageSpec:
+      storageClassName: "standard"
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 8Gi
+alertmanager:
+  storage:
+    storageClassName: "standard"
+    size: 2Gi
