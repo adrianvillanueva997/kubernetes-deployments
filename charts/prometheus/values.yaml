@@ -3,8 +3,8 @@ prometheus:
     failure-domain.beta.kubernetes.io/zone: vmi1572623.contaboserver.net
   server:
     persistentVolume:
-      storageClass: nfs-client
+      storageClass: standard
 
   alertmanager:
     persistentVolume:
-      storageClass: nfs-client
+      storageClass: standard
