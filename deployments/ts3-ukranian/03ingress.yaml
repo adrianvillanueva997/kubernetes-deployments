@@ -28,18 +28,3 @@ spec:
       services:
         - name: ts3-ukranian
           port: 30033
-
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: ts3-ukranian-tls
-  namespace: ts3-ukranian
-spec:
-  secretName: ts3-ukranian-tls
-  issuerRef:
-    name: ts3-ukranian-letsencrypt-production
-    kind: Issuer
-  commonName: ts3.thexiao77.com
-  dnsNames:
-    - ts3.thexiao77.com

@@ -6,5 +6,4 @@ resources:
   - 01secrets.yaml
   - 01volume.yaml
   - 02service.yaml
-  - 02certificates.yaml
   - 03ingress.yaml
