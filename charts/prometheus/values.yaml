@@ -455,7 +455,7 @@ prometheus:
 
       ## Prometheus server data Persistent Volume mount root path
       ##
-      mountPath: /data
+      mountPath: /mnt/prometheus
 
       ## Prometheus server data Persistent Volume size
       ##
@@ -468,7 +468,7 @@ prometheus:
       ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
       ##   GKE, AWS & OpenStack)
       ##
-      # storageClass: "-"
+      storageClass: "-"
 
       ## Prometheus server data Persistent Volume Binding Mode
       ## If defined, volumeBindingMode: <volumeBindingMode>
@@ -1263,7 +1263,7 @@ prometheus:
   alertmanager:
     ## If false, alertmanager will not be installed
     ##
-    enabled: true
+    enabled: false
 
     persistence:
       size: 2Gi
