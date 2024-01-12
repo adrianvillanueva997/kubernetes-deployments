@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: minio-pv
+  name: minio
+  namespace: minio
 spec:
   capacity:
-    storage: 5Gi
+    storage: 500Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
