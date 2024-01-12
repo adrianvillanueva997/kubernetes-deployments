@@ -1,6 +1,6 @@
 dependencies:
 - name: minio
   repository: https://charts.bitnami.com/bitnami
-  version: 13.0.0
-digest: sha256:4a47d0d14e2955938521ca44f39cff66c57922dc58d5febef2030a049b819c3e
-generated: "2024-01-12T14:14:24.52194242Z"
+  version: 13.0.1
+digest: sha256:ff9598667604b56bb217c9d8a85f3c0225284f4b08da4073429b157d81751009
+generated: "2024-01-12T20:46:02.87806145Z"
