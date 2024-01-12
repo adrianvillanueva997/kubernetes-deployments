@@ -12,7 +12,7 @@ spec:
       kind: Rule
       services:
         - name: telegrambot-deficiente-service
-          port: 80
+          port: 8080
       middlewares:
         - name: middleware-https-telegrambot-deficiente
   tls:
