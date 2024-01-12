@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegrambot-deficiente
+  namespace: telegrambot-deficiente
+spec:
+  selector:
+    matchLabels:
+      app: telegrambot-deficiente
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: telegrambot-deficiente
+    spec:
+      containers:
+        - name: telegrambot-deficiente
+          image: ghcr.io/adrianvillanueva997/deficientebot_telegram:v0.5.0
+          ports:
+            - containerPort: 80
+          env:
+            - name: TELOXIDE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-teloxide-token-telegrambot-deficiente
+                  key: token
+            - name: url
+              value: "https://deficientebot.thexiao77.com"
+      restartPolicy: Always
