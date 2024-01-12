@@ -26,4 +26,6 @@ spec:
                   key: token
             - name: url
               value: "https://deficientebot.thexiao77.com"
+            - name: RUST_BACKTRACE
+              value: "1"
       restartPolicy: Always
