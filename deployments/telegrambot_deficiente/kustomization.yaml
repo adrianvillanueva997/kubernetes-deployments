@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - 00app.yaml
-  - 01secrets.yaml
+  - 00secrets.yaml
+  - 01certificates.yaml
   - 02service.yaml
   - 03ingress.yaml
