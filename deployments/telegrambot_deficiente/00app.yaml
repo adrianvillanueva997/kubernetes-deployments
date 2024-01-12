@@ -28,4 +28,6 @@ spec:
               value: "https://deficientebot.thexiao77.com"
             - name: RUST_BACKTRACE
               value: "full"
+            - name: RUST_LOG
+              value: "info"
       restartPolicy: Always
