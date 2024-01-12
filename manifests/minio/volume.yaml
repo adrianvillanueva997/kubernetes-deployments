@@ -18,4 +18,4 @@ metadata:
   name: local-storage
   namespace: minio
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
