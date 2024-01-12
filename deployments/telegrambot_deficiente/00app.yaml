@@ -17,7 +17,7 @@ spec:
         - name: telegrambot-deficiente
           image: ghcr.io/adrianvillanueva997/deficientebot_telegram:v0.6.0
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           env:
             - name: TELOXIDE_TOKEN
               valueFrom:
