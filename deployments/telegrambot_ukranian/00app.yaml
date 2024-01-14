@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegrambot-ukranian
+  namespace: telegrambot-ukranian
+spec:
+  selector:
+    matchLabels:
+      app: telegrambot-deficiente
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: telegrambot-deficiente
+    spec:
+      containers:
+        - name: telegrambot-deficiente
+          image: ghcr.io/adrianvillanueva997/telegrambot-ukranian:v0.3.1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: TELOXIDE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-teloxide-token-telegrambot-ukranian
+                  key: token
+            - name: openweather_key
+              valueFrom:
+                secretKeyRef:
+                  name: secret-openweather-key-telegrambot-ukranian
+                  key: key
+            - name: url
+              value: "https://ukranian.thexiao77.com"
+            - name: RUST_BACKTRACE
+              value: "full"
+            - name: RUST_LOG
+              value: "info"
+      restartPolicy: Always

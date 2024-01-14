@@ -1,0 +1,43 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: telegrambot-ukranian-ingressroute
+  namespace: telegrambot-ukranian
+spec:
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`ukranian.thexiao77.com`)
+      kind: Rule
+      services:
+        - name: telegrambot-ukranian-service
+          port: 8080
+      middlewares:
+        - name: middleware-https-telegrambot-ukranian
+  tls:
+    secretName: telegrambot-ukranian-tls
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: telegrambot-ukranian-tls
+  namespace: telegrambot-ukranian
+spec:
+  secretName: telegrambot-ukranian-tls
+  issuerRef:
+    name: telegrambot-ukranian-letsencrypt-production
+    kind: Issuer
+  commonName: ukranian.thexiao77.com
+  dnsNames:
+    - ukranian.thexiao77.com
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: middleware-https-telegrambot-ukranian
+  namespace: telegrambot-ukranian
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
