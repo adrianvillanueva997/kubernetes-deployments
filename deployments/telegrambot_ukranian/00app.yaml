@@ -6,15 +6,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: telegrambot-deficiente
+      app: telegrambot-ukranian
   replicas: 1
   template:
     metadata:
       labels:
-        app: telegrambot-deficiente
+        app: telegrambot-ukranian
     spec:
       containers:
-        - name: telegrambot-deficiente
+        - name: telegrambot-ukranian
           image: ghcr.io/adrianvillanueva997/telegrambot-ukranian:v0.3.1
           ports:
             - containerPort: 8080
