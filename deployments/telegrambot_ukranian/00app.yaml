@@ -28,7 +28,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: secret-openweather-key-telegrambot-ukranian
-                  key: key
+                  key: token
             - name: url
               value: "https://ukranian.thexiao77.com"
             - name: RUST_BACKTRACE
