@@ -35,8 +35,8 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: middleware-https-adrianvillanueva.com
-  namespace: adrianvillanueva.com
+  name: middleware-https-adrianvillanueva
+  namespace: adrianvillanueva
 spec:
   redirectScheme:
     scheme: https
