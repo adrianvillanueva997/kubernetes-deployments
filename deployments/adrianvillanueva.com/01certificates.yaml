@@ -1,14 +1,14 @@
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: adrianvillanueva.com-letsencrypt-staging
-  namespace: adrianvillanueva.com
+  name: adrianvillanueva-letsencrypt-staging
+  namespace: adrianvillanueva
 spec:
   acme:
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     email: adrianvillanueva997@gmail.com
     privateKeySecretRef:
-      name: adrianvillanueva.com-staging
+      name: adrianvillanueva-staging
     solvers:
       - selector: {}
         http01:
@@ -19,14 +19,14 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: adrianvillanueva.com-letsencrypt-production
-  namespace: adrianvillanueva.com
+  name: adrianvillanueva-letsencrypt-production
+  namespace: adrianvillanueva
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: adrianvillanueva997@gmail.com
     privateKeySecretRef:
-      name: adrianvillanueva.com-production
+      name: adrianvillanueva-production
     solvers:
       - selector: {}
         http01:
