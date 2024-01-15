@@ -28,7 +28,7 @@ spec:
   issuerRef:
     name: adrianvillanueva-letsencrypt-production
     kind: Issuer
-  commonName: adrianvillanueva-tls
+  commonName: adrianvillanueva.com
   dnsNames:
     - adrianvillanueva.com
 ---
