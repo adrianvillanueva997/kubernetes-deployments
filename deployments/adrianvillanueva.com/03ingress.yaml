@@ -12,7 +12,7 @@ spec:
       kind: Rule
       services:
         - name: adrianvillanueva-service
-          port: 8080
+          port: 80
       middlewares:
         - name: middleware-https-adrianvillanueva
   tls:
