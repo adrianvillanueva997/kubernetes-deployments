@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: adrianvillanueva.com
-  namespace: adrianvillanueva.com
+  name: adrianvillanueva
+  namespace: adrianvillanueva
 spec:
   selector:
     matchLabels:
-      app: adrianvillanueva.com
+      app: adrianvillanueva
   replicas: 1
   template:
     metadata:
       labels:
-        app: adrianvillanueva.com
+        app: adrianvillanueva
     spec:
       containers:
-        - name: adrianvillanueva.com
+        - name: adrianvillanueva
           image: ghcr.io/adrianvillanueva997/adrianvillanueva.com:v0.1.1
           ports:
             - containerPort: 8080

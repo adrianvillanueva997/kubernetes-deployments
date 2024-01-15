@@ -1,8 +1,8 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: adrianvillanueva.com-ingressroute
-  namespace: adrianvillanueva.com
+  name: adrianvillanueva-ingressroute
+  namespace: adrianvillanueva
 spec:
   entryPoints:
     - web
@@ -11,24 +11,24 @@ spec:
     - match: Host(`adrianvillanueva.com`)
       kind: Rule
       services:
-        - name: adrianvillanueva.com-service
+        - name: adrianvillanueva-service
           port: 8080
       middlewares:
-        - name: middleware-https-adrianvillanueva.com
+        - name: middleware-https-adrianvillanueva
   tls:
-    secretName: adrianvillanueva.com-tls
+    secretName: adrianvillanueva-tls
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: adrianvillanueva.com-tls
-  namespace: adrianvillanueva.com
+  name: adrianvillanueva-tls
+  namespace: adrianvillanueva
 spec:
-  secretName: adrianvillanueva.com-tls
+  secretName: adrianvillanueva-tls
   issuerRef:
-    name: adrianvillanueva.com-letsencrypt-production
+    name: adrianvillanueva-letsencrypt-production
     kind: Issuer
-  commonName: adrianvillanueva.com
+  commonName: adrianvillanueva
   dnsNames:
     - adrianvillanueva.com
 ---

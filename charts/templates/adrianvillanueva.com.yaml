@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: adrianvillanueva.com
+  name: adrianvillanueva
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -12,7 +12,7 @@ spec:
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: adrianvillanueva.com
+    namespace: adrianvillanueva
   syncPolicy:
     automated:
       selfHeal: true
