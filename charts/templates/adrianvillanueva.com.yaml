@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adrianvillanueva.com
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
+    path: deployments/adrianvillanueva.com
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: adrianvillanueva.com
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
