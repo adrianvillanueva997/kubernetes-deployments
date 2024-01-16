@@ -6,17 +6,17 @@ metadata:
 spec:
   entryPoints:
     - web
-    - websecure
+    # - websecure
   routes:
     - match: Host(`adrianvillanueva.com`)
       kind: Rule
       services:
         - name: adrianvillanueva-service
           port: 80
-      middlewares:
-        - name: middleware-https-adrianvillanueva
-  tls:
-    secretName: adrianvillanueva-tls
+      # middlewares:
+      # - name: middleware-https-adrianvillanueva
+  # tls:
+  # secretName: adrianvillanueva-tls
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
