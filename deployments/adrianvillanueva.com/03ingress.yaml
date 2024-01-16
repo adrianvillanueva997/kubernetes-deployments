@@ -16,7 +16,7 @@ spec:
       middlewares:
         - name: middleware-https-adrianvillanueva
   tls:
-  secretName: adrianvillanueva-tls
+    secretName: adrianvillanueva-tls
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
