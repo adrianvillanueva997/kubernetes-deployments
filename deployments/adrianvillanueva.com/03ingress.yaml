@@ -14,7 +14,7 @@ spec:
         - name: adrianvillanueva-service
           port: 80
       middlewares:
-        - name: middleware-https-adrianvillanueva
+        - name: u7y7
   tls:
     secretName: adrianvillanueva-tls
 ---
@@ -39,5 +39,5 @@ metadata:
   namespace: adrianvillanueva
 spec:
   redirectScheme:
-    scheme: https
+    scheme: websecure
     permanent: true
