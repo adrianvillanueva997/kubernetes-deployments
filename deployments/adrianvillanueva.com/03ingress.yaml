@@ -6,7 +6,7 @@ metadata:
 spec:
   entryPoints:
     - web
-    # - websecure
+    - websecure
   routes:
     - match: Host(`adrianvillanueva.com`)
       kind: Rule
