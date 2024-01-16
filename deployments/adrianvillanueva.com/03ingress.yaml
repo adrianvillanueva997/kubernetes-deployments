@@ -14,7 +14,7 @@ spec:
         - name: adrianvillanueva-service
           port: 80
       middlewares:
-        - name: u7y7
+        - name: middleware-https-adrianvillanueva
   tls:
     secretName: adrianvillanueva-tls
 ---
