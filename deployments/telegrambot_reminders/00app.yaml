@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegrambot-reminders
+  namespace: telegrambot-reminders
+spec:
+  selector:
+    matchLabels:
+      app: telegrambot-reminders
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: telegrambot-reminders
+    spec:
+      containers:
+        - name: telegrambot-reminders
+          image: ghcr.io/adrianvillanueva997/telegrambot_reminder:v0.1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: TELEGRAM_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-telegrambot-key-telegrambot-reminders
+                  key: token
+      restartPolicy: Always
