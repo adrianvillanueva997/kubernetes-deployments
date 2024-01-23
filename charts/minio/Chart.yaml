@@ -3,5 +3,5 @@ name: minio
 version: 1.0.0
 dependencies:
   - name: minio
-    version: 13.2.0
+    version: 13.2.1
     repository: https://charts.bitnami.com/bitnami
