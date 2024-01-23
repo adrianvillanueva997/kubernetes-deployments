@@ -24,7 +24,7 @@ spec:
                 secretKeyRef:
                   name: secret-teloxide-token-telegrambot-deficiente
                   key: token
-            - name: url
+            - name: URL
               value: "https://deficiente.thexiao77.com"
             - name: RUST_BACKTRACE
               value: "full"
