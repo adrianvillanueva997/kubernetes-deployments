@@ -32,6 +32,25 @@ spec:
               value: "info"
             - name: "REDIS_URL"
               value: "redis://telegrambot-deficiente-redis:6379"
+      restartPolicy: Always
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegrambot-deficiente-redis
+  namespace: telegrambot-deficiente
+spec:
+  selector:
+    matchLabels:
+      app: telegrambot-deficiente-redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: telegrambot-deficiente-redis
+    spec:
+      containers:
         - name: telegrambot-deficiente-redis
           image: redis:7.2.4-alpine
           ports:
