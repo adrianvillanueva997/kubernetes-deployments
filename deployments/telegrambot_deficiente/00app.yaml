@@ -31,7 +31,7 @@ spec:
             - name: RUST_LOG
               value: "info"
             - name: "REDIS_URL"
-              value: "redis://telegrambot-deficiente-redis"
+              value: "redis://telegrambot-deficiente-redis-service"
       restartPolicy: Always
 
 ---
