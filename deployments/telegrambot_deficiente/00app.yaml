@@ -14,7 +14,7 @@ spec:
         app: telegrambot-deficiente
     spec:
       containers:
-        - name: telegrambot-deficiente
+        - name: telegrambot-deficiente-bot
           image: ghcr.io/adrianvillanueva997/deficientebot_telegram:v0.16.0
           ports:
             - containerPort: 8080
@@ -30,4 +30,17 @@ spec:
               value: "full"
             - name: RUST_LOG
               value: "info"
+            - name: "REDIS_URL"
+              value: "redis://telegrambot-deficiente-redis:6379"
+        - name: telegrambot-deficiente-redis
+          image: redis:7.2.4-alpine
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name: telegrambot-deficiente-redis-data
+              mountPath: /data
       restartPolicy: Always
+      volumes:
+        - name: telegrambot-deficiente-redis-data
+          persistentVolumeClaim:
+            claimName: telegrambot-deficiente-redis-pvc
