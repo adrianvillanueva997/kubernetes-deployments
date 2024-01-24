@@ -1,0 +1,7 @@
+apiVersion: v2
+name: my-chart
+version: 1.0.0
+dependencies:
+  - name: kube-prometheus-stack
+    version: 56.0.3
+    repository: https://prometheus-community.github.io/helm-charts
