@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: telegrambot-reminders
-          image: ghcr.io/adrianvillanueva997/telegrambot-reminders:v0.2.1
+          image: ghcr.io/adrianvillanueva997/telegrambot-reminders:v0.2.2
           ports:
             - containerPort: 8080
           env:
