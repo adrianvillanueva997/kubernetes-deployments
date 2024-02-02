@@ -5,5 +5,4 @@ resources:
   - argocd
   - metallb
   - traefik
-  - prometheus
   # - minio
