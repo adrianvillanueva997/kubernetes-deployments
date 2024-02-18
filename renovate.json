@@ -4,5 +4,6 @@
   "kubernetes": {
     "fileMatch": ["\\.yaml$"]
   },
-  "assignees": ["adrianvillanueva997"]
+  "assignees": ["adrianvillanueva997"],
+  "recreateClosed": true
 }
