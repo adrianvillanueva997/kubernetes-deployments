@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: adrianvillanueva
-          image: ghcr.io/adrianvillanueva997/adrianvillanueva.com:v0.3.0
+          image: ghcr.io/adrianvillanueva997/adrianvillanueva.com:v0.3.0@sha256:73f90db8f386a33fa4435ddf16976fd214dbaaca3aa908e54b5149ad2ff151f6
           ports:
             - containerPort: 8080
 
