@@ -1,9 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", "group:allNonMajor", ":dependencyDashboard"],
+  "extends": [
+    "config:best-practices",
+    "group:allNonMajor",
+    ":dependencyDashboard"
+  ],
   "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
+    "fileMatch": [
+      "\\.yaml$"
+    ]
   },
-  "assignees": ["adrianvillanueva997"],
-  "recreateClosed": true
+  "assignees": [
+    "adrianvillanueva997"
+  ],
+  "recreateWhen": "always"
 }
