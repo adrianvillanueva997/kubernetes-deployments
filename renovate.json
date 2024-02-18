@@ -3,5 +3,6 @@
   "extends": ["config:best-practices", "group:allNonMajor"],
   "kubernetes": {
     "fileMatch": ["\\.yaml$"]
-  }
+  },
+  "assignees": ["adrianvillanueva997"]
 }
