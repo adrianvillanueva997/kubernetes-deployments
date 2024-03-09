@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
+    repoURL: https://github.com/adrianvillanueva997/adrianvillanueva.com
     path: infra
     targetRevision: feature/kubernetes
   destination:
