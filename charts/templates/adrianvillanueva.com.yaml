@@ -8,8 +8,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
-    path: deployments/adrianvillanueva.com
-    targetRevision: HEAD
+    path: infra
+    targetRevision: feature/kubernetes
   destination:
     server: https://kubernetes.default.svc
     namespace: adrianvillanueva
