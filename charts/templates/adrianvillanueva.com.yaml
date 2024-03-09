@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/adrianvillanueva997/adrianvillanueva.com
     path: infra
-    targetRevision: feature/kubernetes
+    targetRevision: master
   destination:
     server: https://kubernetes.default.svc
     namespace: adrianvillanueva
