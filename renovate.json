@@ -3,13 +3,16 @@
   "extends": [
     "config:recommended",
     "group:allNonMajor",
-    ":dependencyDashboard",
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests"
   ],
-  "kubernetes": {
-    "fileMatch": ["\\.yaml$"]
+  "git-submodules": {
+    "enabled": true
   },
+  "kubernetes": {
+    "fileMatch": [".*\\.yaml$"]
+  },
+  "dependencyDashboard": true,
   "assignees": ["adrianvillanueva997"],
   "recreateWhen": "always",
   "labels": ["dependencies", "renovate"]
