@@ -7,8 +7,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/adrianvillanueva997/kubernetes-deployments
-    path: deployments/telegrambot_deficiente
+    repoURL: https://github.com/adrianvillanueva997/DeficienteBot_Telegram
+    path: infra
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
