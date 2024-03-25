@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: telegrambot-ukranian
-          image: ghcr.io/adrianvillanueva997/telegrambot-ukranian:v4.0.0@sha256:30c127f0413ebbfba9eb92f4a7356bd5e99df12f3d4d8a823125a21a444a27e1
+          image: ghcr.io/adrianvillanueva997/telegrambot-ukranian:v5.0.0@sha256:e31d962b8c25ff28ef58eaac0e284ced83f183a9e8f031441161fbcfea341088
           ports:
             - containerPort: 8080
           env:
