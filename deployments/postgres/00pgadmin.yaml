@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: postgres
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16.2-bullseye
+          ports:
+            - containerPort: 5432
+          env:
+            - name: TELEGRAM_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secret-telegrambot-key-telegrambot-reminders
+                  key: token
+          volumeMounts:
+            - name: postgres-pgdata
+              mountPath: /var/lib/postgressql
+      restartPolicy: Always

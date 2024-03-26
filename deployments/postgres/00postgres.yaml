@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: postgres
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16.2-bullseye
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: avm
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-postgres-credentials
+                  key: password
+          volumeMounts:
+            - name: postgres-pgdata
+              mountPath: /var/lib/postgressql
+      restartPolicy: Always
