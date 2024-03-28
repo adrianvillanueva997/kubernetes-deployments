@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:16.2-bullseye
+          image: postgres:16.2-bullseye@sha256:c52fc08e27b1400ace2ece2dc196ae6a17dbf436ff7633d1f88962ce3e15efad
           ports:
             - containerPort: 5432
           env:
